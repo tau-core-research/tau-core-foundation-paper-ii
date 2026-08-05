@@ -4,15 +4,15 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TEX = ROOT / "paperIII_submission_source" / "main.tex"
+TEX = ROOT / "paperII_submission_source" / "main.tex"
 
 
 def test_required_files_exist():
     for path in [
         ROOT / "README.md", ROOT / "REVIEWER_READINESS.md",
         ROOT / "CITATION.cff", ROOT / "DATA_NOTICE.md", TEX,
-        ROOT / "paperIII_submission_source" / "refs.bib",
-        ROOT / "paperIII_submission_source" / "main.pdf",
+        ROOT / "paperII_submission_source" / "refs.bib",
+        ROOT / "paperII_submission_source" / "main.pdf",
         ROOT / "arxiv_submission_source.zip",
     ]:
         assert path.exists(), path
@@ -21,7 +21,7 @@ def test_required_files_exist():
 def test_claim_markers():
     text = TEX.read_text()
     for marker in [
-        "Foundation Paper III",
+        "Foundation Paper II",
         "Finite source-signature representation uniqueness",
         "Two-sector marginal no-go",
         "Four-sector all-proper-marginal no-go",
@@ -52,7 +52,7 @@ def test_figures_and_arxiv_source():
     text = TEX.read_text()
     for name in ["fig_source_signature_pipeline.pdf", "fig_pauli_dimension_audit.pdf"]:
         assert name in text
-        assert (ROOT / "paperIII_submission_source" / "figures" / name).exists()
+        assert (ROOT / "paperII_submission_source" / "figures" / name).exists()
     with zipfile.ZipFile(ROOT / "arxiv_submission_source.zip") as archive:
         names = archive.namelist()
     assert "main.tex" in names and "refs.bib" in names

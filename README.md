@@ -1,9 +1,11 @@
-# Tau Core Foundation Paper III
+# Tau Core Foundation Paper II
 
 ## Finite Source Signatures, Joint Incidence, and Representation Uniqueness
 
-This repository contains the technical manuscript and reproducibility package
-for the finite joint-source results extracted from Foundation Paper I.
+This repository contains the second manuscript in the foundation sequence and
+the reproducibility package for the finite joint-source results extracted from
+Foundation Paper I.  It identifies the source information required before the
+record-transport problem treated in Foundation Paper III is meaningful.
 
 The paper covers:
 
@@ -33,7 +35,7 @@ python3 scripts/reproduce.py
 
 Outputs:
 
-- `paperIII_submission_source/main.pdf`
+- `paperII_submission_source/main.pdf`
 - `arxiv_submission_source.zip`
 
 The current manuscript is 16 A4 pages and the public package tests pass 5/5.
