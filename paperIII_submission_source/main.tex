@@ -1,0 +1,957 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx,booktabs,longtable,array,enumitem,hyperref,xcolor,microtype}
+\setlength{\emergencystretch}{2em}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Aprim}{\mathcal A_{\rm prim}}
+\newcommand{\Jocc}{\mathcal J_s}
+
+\title{\textbf{Finite Source Signatures, Joint Incidence, and Representation Uniqueness}\\
+\large Tau Core Foundation Paper III}
+\author{Jozsef Olcsak\\\small Independent researcher}
+\date{Draft v0.2 --- 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We study a finite source-selection problem that precedes terminal physical
+readouts.  A complete typed source signature consists of a finite-dimensional
+unital \(C^*\)-algebra, a faithful source state, multiplication and involution
+data, and distinguished role elements or completely positive maps.  The GNS
+construction then gives a unique minimal cyclic realization up to the typed
+unitary equivalences already declared in the source packet.
+
+This positive theorem does not make terminal marginals sufficient.  Two
+faithful bipartite states can share both marginals and differ in a joint
+moment.  More strongly, four-qubit states can share every proper marginal
+while differing along the 81-dimensional weight-four Pauli subspace; proper
+marginals span only 174 of 255 traceless directions.  A single source-owned
+onto joint incidence with positive stiffness is sufficient to generate a
+faithful joint Gram state and hence all finite mixed moments.  Equivalently,
+one coherent source homomorphism \(\Pi_{\rm phys}\) selects the physical
+relation ideal and its faithful quotient representation.
+
+We extend the four-qubit count to arbitrary \(n\)-partite qudit systems and
+give singular-value bounds that quantify how an onto incidence becomes
+ill-conditioned before rank is lost.  The results characterize sufficient
+finite source information and exact non-identifiability boundaries.  They do
+not prove that a physical base--seed parent creates, selects, or occupies the
+required joint incidence or \(\Pi_{\rm phys}\), and they do not derive
+terminal physics, the Standard Model, or empirical validation.
+\end{abstract}
+\tableofcontents
+\clearpage
+
+\section{Problem and claim boundary}
+
+Suppose several terminal sectors have internally consistent local source
+packets.  Their coexistence does not answer whether one physical source owns a
+joint state, fixes all cross-sector relations, or selects one representation.
+The finite question is
+\begin{center}
+\fbox{\begin{minipage}{.82\linewidth}
+Which source data determine one minimal joint realization, and which
+apparently complete data remain non-identifying?
+\end{minipage}}
+\end{center}
+
+This paper proves conditional finite-algebra results.  It may claim
+representation uniqueness after a complete source signature, exact marginal
+no-go theorems, and an onto-incidence sufficient criterion.  It may not infer
+physical occupation from these implications.  In particular, the notation
+\(\Pi_{\rm phys}\) names a physical selection target; it does not assert that
+the target has been derived.
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=.94\linewidth]{figures/fig_source_signature_pipeline.pdf}
+ \caption{The finite logic.  Complete source data determine a minimal cyclic
+ realization, but the physical base--seed law has not yet been shown to create
+ or occupy those data.}
+ \label{fig:signature-pipeline}
+\end{figure}
+
+\section{Finite typed source signatures}
+
+Let \(\mathcal A_s\) be a finite-dimensional unital \(C^*\)-algebra.  After
+the declared source-null quotient, assume a positive stiffness \(K_*>0\) and
+a deduplicated source incidence \(R_s^{\rm dedup}\).  On its occupied ideal,
+define
+\begin{equation}
+ G_s=R_s^{\rm dedup}K_*^{-1}(R_s^{\rm dedup})^\dagger,
+ \qquad
+ \rho_s={G_s\over\Tr G_s},
+ \qquad
+ \omega_s(a)=\Tr(\rho_sa).
+ \label{eq:finite-source-state}
+\end{equation}
+If the incidence is onto the ideal, \(G_s>0\) and \(\omega_s\) is faithful
+there.
+
+Choose a source-orthonormal basis \(e_1,\ldots,e_d\).  Let
+\(\mathbf z_s\) be the finite list of distinguished typed role elements and
+CP maps retained by the claim.
+
+\begin{definition}[Complete finite typed signature]
+The source signature is
+\begin{equation}
+ \Sigma_s=
+ \left(c_{ab}{}^c,j_a{}^b,\omega_s(e_a),
+ [z_\alpha]_a,[\mathcal I_\beta]_{ab}\right),
+ \quad
+ e_ae_b=c_{ab}{}^ce_c,
+ \quad e_a^*=j_a{}^be_b.
+ \label{eq:signature}
+\end{equation}
+It is \emph{complete relative to a claim} when it contains the full abstract
+algebra, faithful state and every typed element or map used by that claim.
+Simultaneous source-basis changes are quotiented only when declared typed
+source isometries.  Undeclared algebra automorphisms are not automatically
+physical equivalences.
+\end{definition}
+
+This is finite information: multiplication, involution, state and role arrays.
+Completeness is claim-relative, not a statement that all parent information is
+accessible.
+
+Every finite-dimensional unital \(C^*\)-algebra has a decomposition
+\begin{equation}
+ \mathcal A_s\cong\bigoplus_{\alpha=1}^{r}M_{n_\alpha}(\mathbb C).
+ \label{eq:wedderburn}
+\end{equation}
+The signature must therefore record not only dimensions but the multiplication
+and involution that distinguish the blocks and their typed roles.  A faithful
+state has strictly positive density on every occupied central block.  Dropping
+a zero-weight block is an occupation decision; it is not a consequence of GNS
+uniqueness on the remaining support.
+
+\subsection{Four logically distinct questions}
+
+The following distinctions are used throughout.
+\begin{longtable}{p{.18\linewidth}p{.35\linewidth}p{.36\linewidth}}
+\toprule
+Question & Mathematical content & What can answer it here?\\
+\midrule
+\endhead
+Existence & Does at least one realization of the typed packet exist? & An
+explicit representation or incidence construction.\\
+Uniqueness & Are all minimal cyclic realizations of the same complete packet
+typed-unitarily equivalent? & The finite GNS theorem below.\\
+Identifiability & Do the retained observables determine the complete packet? &
+A separating-rank test, or a countermodel in the kernel of the retained
+descriptor.\\
+Physical selection & Why is one admissible packet occupied by Nature? & A
+base--seed source law or independent experiment; neither follows from the
+other three rows.\\
+\bottomrule
+\end{longtable}
+
+In particular, uniqueness conditional on \(\Sigma_s\) cannot repair an
+incomplete descriptor.  Conversely, an informationally complete descriptor
+does not prove physical occupation of its reconstructed point.
+
+\begin{definition}[Typed equivalence]
+Two realizations are equivalent only if a unitary intertwines the represented
+algebra, maps the cyclic source vector, preserves the declared central blocks,
+and intertwines every distinguished role element and source map.  Automorphisms
+not included in this equivalence group remain physically distinguishable data.
+\end{definition}
+
+\section{GNS representation uniqueness}
+
+\begin{proposition}[Finite source-signature representation uniqueness]
+Fix \((\mathcal A_s,\omega_s,\mathbf z_s)\) through one complete signature
+\(\Sigma_s\), with \(\omega_s\) faithful.  Any two minimal cyclic finite
+realizations of these data are related by a unique unitary that maps one cyclic
+vector to the other, implements the fixed algebra identification, and
+intertwines every distinguished element and the represented action of every
+distinguished linear or completely positive source map.
+\end{proposition}
+\begin{proof}
+Faithfulness gives
+\(\mathcal N_{\omega_s}=\{a:\omega_s(a^*a)=0\}=\{0\}\).  The GNS Hilbert space
+is the completion of \(\mathcal A_s\) under
+\(\langle a,b\rangle_s=\omega_s(a^*b)\), with cyclic vector \([1]\) and left
+representation \(\pi_s(a)[b]=[ab]\).  For two minimal cyclic realizations set
+\begin{equation}
+ U\pi_1(a)\Omega_1=\pi_2(a)\Omega_2.
+\end{equation}
+Equality of \(\omega_s\) makes \(U\) isometric; cyclic minimality makes its
+range dense, hence unitary.  For a distinguished source map
+\(\mathcal I_\beta:\mathcal A_s\to\mathcal A_s\), define on the cyclic
+domain
+\begin{equation}
+ \widehat{\mathcal I}_{\beta,i}\,\pi_i(a)\Omega_i
+ =\pi_i(\mathcal I_\beta(a))\Omega_i.
+ \label{eq:represented-source-map}
+\end{equation}
+In finite dimension this is a bounded linear operator whenever the displayed
+rule is well defined on the GNS quotient; faithfulness makes that quotient
+trivial here.  The definition of \(U\) gives
+\(U\widehat{\mathcal I}_{\beta,1}
+=\widehat{\mathcal I}_{\beta,2}U\) on the cyclic span.  The same calculation
+handles represented role elements.  The cyclic span fixes \(U\) uniquely.
+This is the
+finite GNS uniqueness mechanism \cite{Segal1947}.
+\end{proof}
+
+Complete positivity is not used to prove unitary uniqueness; it records the
+physical type of an admissible source operation.  Stinespring dilation gives a
+standard representation of such maps, but the dilation environment is not
+unique without its own minimality condition \cite{Stinespring1955}.  The
+present theorem therefore claims uniqueness of the typed minimal cyclic
+realization, not uniqueness of every implementation of its CP operations.
+
+The theorem begins \emph{after} the source signature has been supplied.  It
+does not show that a physical parent selects \(\Sigma_s\).  If a signature map
+\(\Phi_s\) is faithful modulo typed source isometry and the post-quotient
+metric is positive, then
+\begin{equation}
+ \mathcal D_s(C)=\lVert\Phi_s(C)-\Sigma_s\rVert^2
+ \label{eq:signature-defect}
+\end{equation}
+has at most one zero completion class.  Existence of an occupied zero remains
+an independent physical requirement.
+
+\section{Marginals do not select a joint source}
+
+\begin{proposition}[Two-sector marginal no-go]
+Complete faithful source states on separate sectors do not generally determine
+their joint source state.
+\end{proposition}
+\begin{proof}
+For two qubits, compare
+\begin{equation}
+ \rho_0={I_4\over4},\qquad
+ \rho_\epsilon={1\over4}
+ \left(I_4+\epsilon\,\sigma_z\otimes\sigma_z\right),
+ \qquad0<|\epsilon|<1.
+ \label{eq:bipartite-countermodel}
+\end{equation}
+Both states are faithful and both marginals equal \(I_2/2\).  Their joint
+\(\sigma_z\otimes\sigma_z\) moments are respectively zero and \(\epsilon\).
+\end{proof}
+
+Thus compatible gravity, clock, radiation, quantum, matter or gauge marginals
+cannot be promoted to one joint physical source merely by being placed side by
+side.  Cross-sector moments spanning the missing self-adjoint source
+directions are required.
+
+\section{All proper marginals remain incomplete}
+
+For four qubits the traceless Pauli words have total dimension
+\(4^4-1=255\).  Words of weights one, two and three contribute
+\begin{equation}
+ {4\choose1}3+{4\choose2}3^2+{4\choose3}3^3
+ =12+54+108=174.
+ \label{eq:proper-span}
+\end{equation}
+The remaining weight-four subspace has dimension \(3^4=81\).
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=.86\linewidth]{figures/fig_pauli_dimension_audit.pdf}
+ \caption{Exact Pauli-word dimension audit.  Every proper marginal can access
+ weights at most three; the 81 weight-four directions remain invisible.}
+ \label{fig:pauli-audit}
+\end{figure}
+
+\begin{proposition}[Four-sector all-proper-marginal no-go]
+There are faithful four-qubit states with identical marginals on every proper
+subsystem and different genuine four-sector moments.
+\end{proposition}
+\begin{proof}
+Let
+\begin{equation}
+ \rho_\epsilon={1\over16}
+ \left(I_{16}+\epsilon\,\sigma_z^{\otimes4}\right),
+ \qquad0<|\epsilon|<1.
+ \label{eq:four-sector-family}
+\end{equation}
+Its eigenvalues are \((1\pm\epsilon)/16>0\).  Tracing out any nonempty factor
+annihilates the Pauli product because \(\Tr\sigma_z=0\), so every proper
+marginal is maximally mixed and independent of \(\epsilon\).  Yet
+\(\Tr(\rho_\epsilon\sigma_z^{\otimes4})=\epsilon\).
+\end{proof}
+
+The number 81 belongs specifically to this four-qubit Pauli decomposition.
+It is not a representation-independent count for every four-sector model.
+The invariant lesson is that all proper marginals may leave genuine joint
+directions unresolved.
+
+\subsection{General \(n\)-partite qudit count}
+
+The preceding example is the smallest calculation used by the Tau packet, but
+the obstruction is general.  Fix a Hilbert--Schmidt orthogonal Hermitian basis
+\(\{I,T_1,\ldots,T_{d^2-1}\}\) on one qudit, with every \(T_a\) traceless.
+The tensor words of weight \(w\) have dimension
+\begin{equation}
+ N_w={n\choose w}(d^2-1)^w.
+ \label{eq:weight-count}
+\end{equation}
+
+\begin{proposition}[All-proper-marginal kernel for \(n\) qudits]
+For \(n\ge2\), the linear descriptor consisting of every proper marginal
+annihilates the full-weight tensor subspace of dimension
+\((d^2-1)^n\).  Hence the descriptor rank on traceless Hermitian operators is
+at most
+\begin{equation}
+ \sum_{w=1}^{n-1}{n\choose w}(d^2-1)^w
+ =d^{2n}-1-(d^2-1)^n.
+ \label{eq:proper-marginal-rank}
+\end{equation}
+There are faithful density operators with identical proper marginals and
+different full-weight moments.
+\end{proposition}
+\begin{proof}
+Tracing out any factor of a full-weight word
+\(T_{a_1}\otimes\cdots\otimes T_{a_n}\) gives zero because each local factor
+is traceless.  Linear independence of the tensor-product basis gives the
+kernel dimension.  For any nonzero Hermitian full-weight word \(X\), set
+\begin{equation}
+ \rho_\epsilon={I\over d^n}+\epsilon X,
+ \qquad
+ |\epsilon|<{1\over d^n\lVert X\rVert_{\rm op}}.
+ \label{eq:general-marginal-family}
+\end{equation}
+Then \(\rho_\epsilon>0\), has unit trace, and every proper marginal is
+independent of \(\epsilon\), while \(\Tr(\rho_\epsilon X)\) varies linearly.
+\end{proof}
+
+For \(n=4,d=2\), Eq.~\eqref{eq:proper-marginal-rank} returns
+\(255-81=174\).  The theorem is an identifiability statement, not a claim that
+physical source sectors are qudits.  It formalizes why assembling all lower
+order readouts need not determine their common parent relation, a familiar
+form of the quantum marginal problem \cite{Klyachko2006,Bravyi2004,
+LindenPopescuWootters2002}.
+
+\subsection{Descriptor rank criterion}
+
+Let \(V_J\) be the real vector space of traceless self-adjoint operators on a
+declared joint carrier, and let
+\(D:V_J\to\mathbb R^m\) collect all retained expectation values.  The joint
+state is locally identifiable from those linear data exactly when
+\begin{equation}
+ \ker D=\{0\}.
+ \label{eq:descriptor-rank}
+\end{equation}
+If \(\ker D\ne\{0\}\), any sufficiently small Hermitian perturbation along a
+kernel direction preserves positivity around a faithful state and produces a
+locally indistinguishable state.  This turns ``descriptor completeness'' into
+a finite rank test rather than a verbal completeness claim.
+
+\begin{proposition}[Noise-stable linear identifiability]
+Equip \(V_J\) and \(\mathbb R^m\) with fixed Euclidean norms and let
+\(\sigma_D>0\) be the smallest singular value of an injective descriptor
+\(D\).  If two states satisfy
+\begin{equation}
+ \lVert D(\rho-\sigma)\rVert\le\delta,
+ \label{eq:noisy-descriptor}
+\end{equation}
+then
+\begin{equation}
+ \lVert\rho-\sigma\rVert\le{\delta\over\sigma_D}.
+ \label{eq:descriptor-stability}
+\end{equation}
+If \(D\) is not injective, no finite bound of this form can control components
+in \(\ker D\).
+\end{proposition}
+\begin{proof}
+By the singular-value variational definition,
+\(\lVert DX\rVert\ge\sigma_D\lVert X\rVert\) for all \(X\in V_J\).
+Apply this to \(X=\rho-\sigma\).  If \(X\in\ker D\setminus\{0\}\), the
+descriptor difference vanishes while \(\lVert X\rVert\) does not.
+\end{proof}
+
+The bound depends on the declared normalization of observables and noise.  It
+is not invariant under arbitrary rescaling of descriptor rows, so a physical
+audit must freeze those units before reporting \(\sigma_D\).  Statistical
+confidence regions may then be propagated through the same singular-value
+decomposition; they do not change the exact kernel.
+
+For orientation, three qubits have \(4^3-1=63\) traceless Pauli directions.
+All one- and two-body words span
+\begin{equation}
+ {3\choose1}3+{3\choose2}3^2=9+27=36,
+\end{equation}
+leaving 27 weight-three directions invisible to every proper marginal.  Four
+qubits enlarge these numbers to 174 visible and 81 invisible directions.  The
+growth is structural: adding more lower-order precision does not reveal an
+exact full-weight kernel direction.
+
+\section{One onto joint incidence is sufficient}
+
+The positive replacement is not an independently fitted coefficient for every
+missing word.
+
+\begin{proposition}[Onto-incidence faithful-state theorem]
+Let \(\mathcal H_J\) be an occupied finite joint carrier, let
+\(\mathcal E_J\) be the source-leg Hilbert space, let
+\(K_s\in\End(\mathcal E_J)\) be positive definite, and let
+\(R_J:\mathcal E_J\to\mathcal H_J\) be a source-owned onto incidence.  Then
+\begin{equation}
+ G_J=R_JK_s^{-1}R_J^\dagger,
+ \qquad
+ \rho_J={G_J\over\Tr G_J}
+ \label{eq:joint-gram-state}
+\end{equation}
+defines a faithful density operator on \(\mathcal H_J\).  Once the typed joint
+role algebra is represented on \(\mathcal H_J\), it fixes every finite mixed
+moment of that representation.
+\end{proposition}
+\begin{proof}
+Surjectivity of \(R_J\) makes \(R_J^\dagger\) injective.  For nonzero
+\(v\in\mathcal H_J\),
+\begin{equation}
+ \langle v,G_Jv\rangle
+ =\langle R_J^\dagger v,K_s^{-1}R_J^\dagger v\rangle>0.
+\end{equation}
+Hence \(G_J>0\), the normalized state is faithful, and linearity assigns all
+mixed-word expectations.
+\end{proof}
+
+Onto incidence is sufficient, not necessary in every possible presentation.
+It is also not selected by the separate sector marginals.
+
+\subsection{Quantitative stability before rank loss}
+
+Surjectivity is a sharp condition, but experiments and numerical source
+reconstructions require a condition number.  Write
+\(k_{\min}=\lambda_{\min}(K_s)\),
+\(k_{\max}=\lambda_{\max}(K_s)\), and let
+\(\sigma_{\min}(R_J)\), \(\sigma_{\max}(R_J)\) be the extremal singular values
+on the non-null source quotient.
+
+\begin{proposition}[Joint-Gram eigenvalue bounds]
+If \(R_J\) is onto, then
+\begin{equation}
+ {\sigma_{\min}(R_J)^2\over k_{\max}}
+ \le \lambda_{\min}(G_J)
+ \le \lambda_{\max}(G_J)
+ \le {\sigma_{\max}(R_J)^2\over k_{\min}}.
+ \label{eq:gram-bounds}
+\end{equation}
+Consequently,
+\begin{equation}
+ \kappa(G_J)\le
+ \kappa(K_s)\left({\sigma_{\max}(R_J)\over
+ \sigma_{\min}(R_J)}\right)^2.
+ \label{eq:gram-condition}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For unit \(v\in\mathcal H_J\),
+\begin{equation}
+ {\lVert R_J^\dagger v\rVert^2\over k_{\max}}
+ \le \langle v,G_Jv\rangle
+ \le {\lVert R_J^\dagger v\rVert^2\over k_{\min}}.
+\end{equation}
+The min--max principle and the singular values of \(R_J^\dagger\) give
+Eq.~\eqref{eq:gram-bounds}; division gives
+Eq.~\eqref{eq:gram-condition}.
+\end{proof}
+
+Thus the exact theorem has an observable precursor: as
+\(\sigma_{\min}(R_J)\to0\), the reconstructed joint state becomes poorly
+conditioned before faithfulness is lost.  A small singular value is not new
+physics by itself; it may also signal an incomplete descriptor, calibration
+degeneracy, or insufficient data.  If \(R_J\) is not onto, then
+\begin{equation}
+ \ker G_J=\ker R_J^\dagger=(\operatorname{ran}R_J)^\perp.
+ \label{eq:gram-kernel}
+\end{equation}
+The unresolved directions are therefore explicit rather than absorbed into a
+fitted terminal correction.
+
+\section{The coherent physical source map}
+
+Let the once-owned primitive roles generate a universal typed unital
+\(*\)-algebra \(\Aprim\) modulo relations already fixed source-side.  One
+source-owned unital \(*\)-homomorphism
+\begin{equation}
+ \Pi_{\rm phys}:\Aprim\longrightarrow\mathcal B(\mathcal H_{\rm post})
+ \label{eq:pi-phys}
+\end{equation}
+selects the physical relation ideal \(\ker\Pi_{\rm phys}\) and a faithful
+representation of the quotient
+\(\Aprim/\ker\Pi_{\rm phys}\).
+
+\begin{proposition}[Compression of finite joint selection]
+Once the primitive typed presentation is fixed, selection of the joint ideal,
+quotient representation and distinguished role images can be compressed to
+one coherent \(\Pi_{\rm phys}\), rather than a table of independently fitted
+cross-terminal gains.
+\end{proposition}
+\begin{proof}
+The kernel of a unital \(*\)-homomorphism is a two-sided \(*\)-ideal.  The
+first isomorphism theorem identifies the quotient with its image.  The images
+of the typed generators then determine the represented role packet and all
+algebraically generated mixed relations.
+\end{proof}
+
+The proposition does not construct or occupy \(\Pi_{\rm phys}\).  Distinct
+homomorphisms can preserve all currently fixed marginal and overlap data while
+changing mixed moments.  A complete seed-owned relation presentation and a
+unique typed-unitary zero orbit would be sufficient, but are not derived here.
+
+\subsection{What \(\Pi_{\rm phys}\) does and does not select}
+
+The homomorphism fixes algebraic relations and a represented quotient.  It does
+not by itself fix a faithful state on that quotient.  Conversely, the
+incidence/stiffness pair in Eq.~\eqref{eq:joint-gram-state} fixes a density
+operator only after the carrier and represented role algebra are known.  The
+two data are complementary:
+\begin{equation}
+ \Pi_{\rm phys}:
+ \text{relations and representation},
+ \qquad
+ (R_J,K_s):
+ \text{occupation and joint state}.
+ \label{eq:representation-state-split}
+\end{equation}
+Calling them ``equivalent'' would require an additional common-source theorem
+that reconstructs each from the other.  No such theorem is assumed here.
+
+\begin{proposition}[Faithful quotient representation]
+If \(\Pi_{\rm phys}:\Aprim\to\mathcal B(\mathcal H_{\rm post})\) is a unital
+\(*\)-homomorphism, then the induced map
+\begin{equation}
+ \widetilde\Pi_{\rm phys}:
+ \Aprim/\ker\Pi_{\rm phys}\longrightarrow
+ \operatorname{im}\Pi_{\rm phys}
+ \label{eq:faithful-quotient-map}
+\end{equation}
+is a faithful unital \(*\)-isomorphism.
+\end{proposition}
+\begin{proof}
+The kernel is a two-sided closed \(*\)-ideal.  The first isomorphism theorem
+makes the induced map bijective and \(*\)-preserving; injectivity is precisely
+faithfulness on the quotient.
+\end{proof}
+
+The choice of \(\ker\Pi_{\rm phys}\) remains physical information.  The same
+primitive generator list can admit inequivalent ideals and hence inequivalent
+joint physics.  Marginal agreement cannot select among them when the
+distinguishing relation lies in the marginal descriptor kernel.
+
+\section{Countermodels separating the logical levels}
+
+The preceding results are easiest to audit through finite controls.
+
+\paragraph{Same marginals, different state.}
+Equation~\eqref{eq:bipartite-countermodel} keeps both reduced density matrices
+fixed while changing one joint moment.  Identifiability fails even though both
+joint states exist.
+
+\paragraph{Same presentation, different quotient.}
+Let \(\Aprim=\mathbb C[x]/(x^2-x)\), viewed as a unital \(*\)-algebra with
+\(x=x^*\).  The characters \(\Pi_0(x)=0\) and \(\Pi_1(x)=1\) are both unital
+\(*\)-homomorphisms but have different kernels.  A generator name and its
+typing therefore do not select one physical relation ideal.
+
+\paragraph{Same carrier dimension, different incidence rank.}
+Take \(K_s=I_2\), \(R_{\rm onto}=I_2\), and
+\begin{equation}
+ R_{\rm deficient}=\begin{pmatrix}1&0\\0&0\end{pmatrix}.
+\end{equation}
+The first produces \(G_J=I_2\); the second produces a rank-one Gram operator.
+Carrier dimension alone therefore does not imply faithful occupation.
+
+\paragraph{Near-singular but onto incidence.}
+For \(R_\delta=\operatorname{diag}(1,\delta)\), \(0<\delta\ll1\), the joint
+state is faithful but \(\kappa(G_J)=\delta^{-2}\).  Exact identifiability can
+coexist with severe practical instability, which is why the singular-value
+ledger is part of the operational audit.
+
+\section{Worked end-to-end finite packet}
+
+We now run one packet from typed source data to represented mixed moments.  It
+is deliberately elementary: its purpose is to expose every domain, rank and
+normalization used by the abstract theorems, not to model a physical Tau
+carrier.
+
+Let the joint carrier and source-leg spaces both be \(\mathbb C^2\), and set
+\begin{equation}
+ K_s=\begin{pmatrix}k_0&0\\0&k_1\end{pmatrix},
+ \qquad
+ R_\delta=\begin{pmatrix}1&0\\0&\delta\end{pmatrix},
+ \qquad k_0,k_1>0,\quad\delta>0.
+ \label{eq:worked-source-data}
+\end{equation}
+The represented role algebra is \(\mathcal A_s=M_2(\mathbb C)\), with typed
+Hermitian generators \(I,X,Y,Z\) and Hilbert--Schmidt reference pairing
+\(\langle a,b\rangle_{\rm HS}=\Tr(a^\dagger b)\).  The occupied faithful
+state will be generated by the incidence.  Its Gram operator is
+\begin{equation}
+ G_\delta=R_\delta K_s^{-1}R_\delta^\dagger
+ =\begin{pmatrix}k_0^{-1}&0\\0&\delta^2k_1^{-1}\end{pmatrix},
+ \label{eq:worked-gram}
+\end{equation}
+and therefore
+\begin{equation}
+ \rho_\delta=
+ {1\over k_0^{-1}+\delta^2k_1^{-1}}
+ \begin{pmatrix}k_0^{-1}&0\\0&\delta^2k_1^{-1}\end{pmatrix}.
+ \label{eq:worked-state}
+\end{equation}
+
+For every \(\delta>0\), \(R_\delta\) is onto and \(\rho_\delta\) is faithful.
+At \(\delta=0\), the second carrier direction lies in
+\(\ker R_0^\dagger\), \(G_0\) has rank one, and the full-carrier faithful-state
+claim fails exactly as Eq.~\eqref{eq:gram-kernel} predicts.  With \(k_0=k_1=1\),
+\begin{equation}
+ \lambda_{\min}(G_\delta)=\delta^2,
+ \qquad
+ \lambda_{\max}(G_\delta)=1,
+ \qquad
+ \kappa(G_\delta)=\delta^{-2}
+ \quad(0<\delta\le1).
+ \label{eq:worked-conditioning}
+\end{equation}
+
+The full Bloch descriptor
+\begin{equation}
+ D_{XYZ}(\rho)=
+ \bigl(\Tr\rho X,\Tr\rho Y,\Tr\rho Z\bigr)
+ \label{eq:bloch-descriptor}
+\end{equation}
+is injective on trace-one Hermitian matrices and reconstructs
+\begin{equation}
+ \rho={1\over2}\bigl(I+D_X X+D_Y Y+D_Z Z\bigr).
+ \label{eq:bloch-reconstruction}
+\end{equation}
+For Eq.~\eqref{eq:worked-state}, \(D_X=D_Y=0\) and
+\begin{equation}
+ D_Z={k_0^{-1}-\delta^2k_1^{-1}
+ \over k_0^{-1}+\delta^2k_1^{-1}}.
+ \label{eq:worked-bloch-z}
+\end{equation}
+Keeping only \(D_Z\) would identify this diagonal family after that family was
+frozen, but would not identify an arbitrary qubit state: the \(X\) and \(Y\)
+directions would remain in the descriptor kernel.
+
+Finally take \(\Aprim=M_2(\mathbb C)\) with its Pauli presentation and choose
+\begin{equation}
+ \Pi_{\rm phys}=\operatorname{id}_{M_2}:\Aprim\to\mathcal B(\mathbb C^2).
+ \label{eq:worked-pi}
+\end{equation}
+This is a unital \(*\)-homomorphism with zero kernel, so it supplies the
+faithful quotient representation.  The dephasing map
+\(a\mapsto P_0aP_0+P_1aP_1\) is unital and completely positive but not
+multiplicative on \(M_2\); it cannot replace \(\Pi_{\rm phys}\) in the quotient
+theorem even though it preserves the diagonal family.
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=.96\linewidth]{figures/fig_selection_stability.pdf}
+ \caption{Left: existence, uniqueness, identifiability and physical selection
+ require separate audits.  Right: the worked packet stays faithful for every
+ \(\delta>0\) while its Gram condition number diverges as rank loss is
+ approached.}
+ \label{fig:selection-stability}
+\end{figure}
+
+The complete finite certificate for this toy is therefore
+\begin{equation}
+ \mathfrak C_\delta=
+ \left(M_2,\omega_\delta,K_s,R_\delta,D_{XYZ},
+ \Pi_{\rm phys}=\operatorname{id},
+ \mathcal G_{\rm eq}=\{I\},
+ \mathsf{occupation}=\rho_\delta\right).
+ \label{eq:worked-certificate}
+\end{equation}
+where \(\omega_\delta(a)=\Tr(\rho_\delta a)\).  It proves internal existence,
+typed GNS uniqueness, descriptor
+identifiability, onto-incidence faithfulness and representation consistency.
+It does \emph{not} prove that a base--seed parent selects any member of this
+family, any value of \(k_0,k_1,\delta\), or the identity representation as a
+physical law.
+
+\subsection{Failure matrix for the worked packet}
+
+The same example separates failures that would otherwise look alike in an
+endpoint fit.
+\begin{longtable}{p{.22\linewidth}p{.28\linewidth}p{.38\linewidth}}
+\toprule
+Modification & Mathematical result & Scientific diagnosis\\
+\midrule
+\endhead
+\(k_0=k_1\), \(\delta=1\) & \(G=I\),
+\(\rho=I/2\), \(\kappa(G)=1\) & Symmetric, well-conditioned occupied packet;
+still no proof of physical selection.\\
+\(0<\delta\ll1\) & \(G>0\) but
+\(\kappa(G)=\delta^{-2}\gg1\) & Exact faithfulness survives, while finite
+precision makes the weak direction difficult to reconstruct.\\
+\(\delta=0\) & \(R\) is not onto and \(G\) has rank one & The claimed
+full-carrier faithful occupation is false; support reduction must be declared.\\
+Retain \(D_Z\) only & Diagonal states are separated, arbitrary qubit states
+are not & The descriptor is complete only relative to a frozen commuting
+family; off-diagonal completion is unidentifiable.\\
+Replace \(\Pi_{\rm phys}\) by dephasing & The map is unital CPTP but not a
+\(*\)-homomorphism & It may define an irreversible record process, not the
+relation-ideal quotient used in Proposition 8.\\
+Fit \(k_0,k_1,\delta\) from the same terminal outcome & Many packets can
+reproduce one diagonal state & Endpoint agreement cannot establish upstream
+source ownership or select the physical parameter triple.\\
+\bottomrule
+\end{longtable}
+
+The rows give mutually different remedies.  Rank loss requires a smaller
+support theorem; descriptor failure requires additional predeclared
+observables; nonmultiplicative dynamics require a CP/recovery analysis; and
+nature-selection failure requires an upstream source law or independent
+overdetermination.  None is repaired by merely improving the fit of
+Eq.~\eqref{eq:worked-state} to one measured density matrix.
+
+\section{Operational source-completeness audit}
+
+A finite source-signature claim should declare:
+\begin{enumerate}[label=(S\arabic*)]
+ \item the source algebra and true-null quotient;
+ \item the faithful state or the incidence/stiffness pair generating it;
+ \item all typed primitive roles and ownership multiplicities;
+ \item the cross-sector observables required by the claim;
+ \item the equivalence group and every non-quotiented automorphism;
+ \item the rank test showing that retained observables separate the joint
+ self-adjoint algebra; and
+ \item whether existence, uniqueness and physical occupation are each proved,
+ assumed or open.
+\end{enumerate}
+
+Passing this audit proves informational completeness relative to the declared
+finite claim.  It does not prove that Nature realizes the audited source.
+
+\subsection{A reproducible finite audit matrix}
+
+For a concrete model the declarations above reduce to finite linear algebra.
+The following matrix separates calculations from physical assumptions.
+\begin{longtable}{p{.27\linewidth}p{.32\linewidth}p{.31\linewidth}}
+\toprule
+Object & Reproducible check & Failure meaning\\
+\midrule
+Algebra packet & Verify associativity, unit and involution arrays in
+Eq.~\eqref{eq:signature}. & The proposed typed source is not a
+\(C^*\)-algebra presentation.\\
+State packet & Diagonalize \(\rho_s\) on every declared occupied block. & A
+zero eigenvalue requires support reduction or a nonfaithful theorem.\\
+Descriptor & Compute \(\operatorname{rank}D\) on the declared self-adjoint
+joint space. & Kernel directions are not identified by the retained data.\\
+Incidence & Compute rank and singular values of \(R_J\) after true-null
+quotient. & Rank loss forbids faithful Gram occupation; small singular values
+signal instability.\\
+Representation & Verify multiplicativity, unit and dagger preservation of
+\(\Pi_{\rm phys}\). & A merely unital linear or CP map does not define the
+claimed relation ideal by the first isomorphism theorem.\\
+Equivalence & Test whether candidate solutions lie in the declared typed
+unitary orbit. & An undeclared automorphism is a second physical completion,
+not gauge by default.\\
+Ownership & Trace every retained parameter to one source ledger entry. & A
+terminally inserted cross-gain violates source freeze.\\
+\bottomrule
+\end{longtable}
+
+The audit is deliberately compatible with negative results.  A rank-deficient
+descriptor is not repaired by fitting its kernel directions to terminal data;
+it is reported as non-identifying.  A non-onto incidence is not promoted by
+renaming its support the full carrier.  A second zero orbit is not quotient
+gauge unless the equivalence group was declared before inspecting it.
+
+\section{Relation to established finite-dimensional results}
+
+The mathematical ingredients are standard; the contribution is their typed
+source-selection arrangement and explicit claim boundary.  GNS gives a
+canonical cyclic representation after an algebra and state are fixed
+\cite{Segal1947}.  Stinespring characterizes completely positive maps through
+dilations, but does not select a physical source state or a unique
+nonminimal environment \cite{Stinespring1955}.  Quantum marginal theory asks
+whether reduced states are compatible with a common global state and when
+they determine it \cite{Klyachko2006,Bravyi2004,
+LindenPopescuWootters2002}.  The present all-proper-marginal count is a direct
+tensor-basis kernel calculation within that broader problem.
+
+What is specific to this program is the division of labor:
+\begin{equation}
+ \text{typed source signature}
+ \longrightarrow
+ \begin{cases}
+  \text{minimal cyclic representation},\\
+  \text{descriptor-rank audit},\\
+  \text{incidence-generated occupation},\\
+  \text{explicit nature-selection blocker}.
+ \end{cases}
+ \label{eq:division-of-labor}
+\end{equation}
+No novelty is claimed for GNS, Stinespring theory, or the marginal problem
+themselves.  Nor does the finite analysis establish quantum gravity or the
+Standard Model.  Its use is to prevent several terminal reconstructions from
+being mistaken for one physically selected common source.
+
+\section{What a physical source theorem must add}
+
+The remaining theorem cannot be another representation theorem conditional on
+the desired packet.  It must provide a parent law whose occupied solutions
+jointly determine:
+\begin{enumerate}[label=(P\arabic*)]
+ \item the primitive typed algebra and its relation ideal;
+ \item the carrier and the physical homomorphism \(\Pi_{\rm phys}\);
+ \item the source-leg stiffness \(K_s\) and incidence \(R_J\);
+ \item a faithful occupied state or a declared support reduction;
+ \item the equivalence group, including which automorphisms are gauge; and
+ \item the terminally relevant descriptors without endpoint-dependent
+ tuning.
+\end{enumerate}
+An action principle could supply such data only if its variables and symmetry
+group are specified before variation and if its stationary orbit is unique up
+to the declared equivalence.  A reconstruction from public terminal data can
+support or reject the rank, positivity and shared-parameter consequences of a
+candidate packet, but cannot by itself prove that the base--seed parent is its
+ontological source.
+
+This distinction gives a finite reopening rule.  The physical-selection branch
+is promoted only by either (i) a source theorem deriving (P1)--(P6), or (ii) a
+source-frozen experiment whose independent observables overdetermine the same
+packet and reject its allowed alternatives.  Additional terminal fits without
+such overdetermination do not close the arrow.
+
+\section{What remains open}
+
+The internal alternatives are now finite:
+\begin{equation}
+ \begin{array}{ccl}
+ \text{complete typed signature}&\Rightarrow&\text{unique minimal cyclic representation},\\
+ \text{proper marginals only}&\Rightarrow&\text{joint source non-identifiable},\\
+ \text{onto joint incidence}&\Rightarrow&\text{faithful joint Gram state},\\
+ \text{unital \(*\)-homomorphism}&\Rightarrow&\text{faithful quotient representation}.
+ \end{array}
+\end{equation}
+The Tau-specific blocker is the physical source of the third line and of
+\(\Pi_{\rm phys}\).  Neither GNS uniqueness nor the dimension audit selects
+that source.  Terminal fits cannot fill the gap without violating source
+freeze.
+
+In particular, this paper does not prove:
+\begin{itemize}
+ \item that the universal morphology seed exists or contains all primitive
+ ordering information;
+ \item that the physical base creates the declared finite algebra, faithful
+ source state, onto incidence, or \(\Pi_{\rm phys}\);
+ \item that the incidence-generated state and the representation map descend
+ from one microscopic once-counted functional;
+ \item that terminal gravity, time, quantum, matter, gauge, or cosmological
+ readouts occupy the finite roles used here;
+ \item that the Standard Model spectrum, constants, generations, or a
+ quantized spacetime geometry follow from the packet; or
+ \item that any current data set empirically validates the Tau ontology.
+\end{itemize}
+
+The proper conclusion from a failed rank or occupation test is demotion of the
+candidate packet.  It is not permission to add an independently fitted joint
+coefficient.
+
+\section{Conclusion}
+
+Finite source signatures separate four questions often conflated in
+foundation models: existence, representation uniqueness, identifiability and
+physical selection.  Complete source data determine a unique minimal cyclic
+realization, but terminal marginals need not determine those source data.  For
+\(n\) qudits, all proper marginals miss a full-weight subspace of dimension
+\((d^2-1)^n\); the four-qubit value is 81.
+
+One onto source incidence with positive stiffness is sufficient to generate a
+faithful joint state, with conditioning controlled by the extremal singular
+values of the incidence.  A coherent unital \(*\)-homomorphism
+\(\Pi_{\rm phys}\) separately compresses the ideal and representation choice.
+These are constructive finite targets, not nature-selection theorems.
+Physical base--seed ownership and joint occupation remain open in the precise
+form listed in (P1)--(P6).
+
+\appendix
+\section{Finite verification protocol}
+
+This appendix gives a model-independent calculation order for a proposed
+finite packet.  It is intentionally mechanical so that a negative result can
+be reproduced.
+
+\paragraph{Step 1: construct the algebra tables.}
+Choose a basis containing the unit and store the arrays
+\(c_{ab}{}^c\) and \(j_a{}^b\).  Verify
+\begin{align}
+ c_{ab}{}^dc_{dc}{}^e&=c_{bc}{}^dc_{ad}{}^e,
+ & c_{1a}{}^b=c_{a1}{}^b&=\delta_a{}^b,\\
+ (e_ae_b)^*&=e_b^*e_a^*,
+ & (e_a^*)^*&=e_a.
+\end{align}
+A numerical tolerance is not an algebraic proof; exact or certified arithmetic
+is preferable when the entries permit it.
+
+\paragraph{Step 2: freeze support and state.}
+Construct \(G_s\), diagonalize it on each central block, and declare whether
+zero eigenvalues are true nulls or failed occupation.  Normalize only after
+this decision.  Replacing a small eigenvalue by zero changes the claimed
+carrier and must be recorded as a model decision.
+
+\paragraph{Step 3: assemble the descriptor.}
+Vectorize a basis of traceless self-adjoint operators and write every retained
+expectation value as one row of \(D\).  Compute its exact rank when possible,
+then report \(\sigma_D\) in frozen physical units.  A basis for \(\ker D\)
+provides explicit countermodel directions.
+
+\paragraph{Step 4: audit incidence.}
+After removing only declared source nulls, compute the rank and singular values
+of \(R_J\), then construct \(G_J\).  Check
+Eq.~\eqref{eq:gram-kernel} directly and compare its eigenvalues with
+Eq.~\eqref{eq:gram-bounds}.  This catches domain mistakes in
+\(R_JK_s^{-1}R_J^\dagger\).
+
+\paragraph{Step 5: verify the representation map.}
+On primitive generators test unit, multiplication and dagger preservation.
+Compute the generated ideal and verify that the induced quotient map in
+Eq.~\eqref{eq:faithful-quotient-map} is injective.  A CPTP or unital CP map may
+be physically useful, but it is not substituted for a \(*\)-homomorphism in
+this particular quotient theorem.
+
+\paragraph{Step 6: separate conclusions.}
+Report existence, uniqueness, identifiability, conditioning and physical
+selection on separate lines.  A pass in one line must not be copied into
+another.  The minimal machine-readable certificate is therefore
+\begin{equation}
+ \mathfrak C_s=
+ (\Sigma_s,\operatorname{rank}D,\sigma_D,
+  \operatorname{rank}R_J,\sigma_{\min}(R_J),
+  \ker\Pi_{\rm phys},\mathcal G_{\rm eq},\mathsf{occupation}).
+ \label{eq:finite-certificate}
+\end{equation}
+
+\section{Proof-dependency ledger}
+
+The dependency graph is short enough to state without hiding assumptions:
+\begin{enumerate}[label=(D\arabic*)]
+ \item A finite unital \(C^*\)-algebra and faithful state imply a minimal GNS
+ realization unique up to the declared typed unitary.
+ \item Descriptor injectivity, not GNS uniqueness, determines whether retained
+ data identify the joint state.
+ \item Proper marginals fail this test whenever a full-weight tensor direction
+ remains in the descriptor kernel.
+ \item Positive stiffness and onto incidence produce a faithful joint Gram
+ state; the singular values quantify stability.
+ \item A unital \(*\)-homomorphism selects a relation ideal and faithful
+ quotient representation, but not its physical occupation.
+ \item A base--seed source theorem must jointly own the data in (D1)--(D5) to
+ close the Tau-specific nature-selection arrow.
+\end{enumerate}
+
+No implication runs backward without extra hypotheses.  In particular,
+faithful occupation does not imply onto incidence in every presentation,
+identifiability does not imply physical selection, and a faithful quotient
+representation does not determine a unique state.
+
+\bibliographystyle{unsrt}
+\bibliography{refs}
+\end{document}

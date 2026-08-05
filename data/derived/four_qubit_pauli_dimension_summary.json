@@ -1,0 +1,9 @@
+{
+  "traceless_joint_dimension": 255,
+  "weight_1": 12,
+  "weight_2": 54,
+  "weight_3": 108,
+  "proper_marginal_span": 174,
+  "weight_4_hidden_subspace": 81,
+  "claim_boundary": "exact for the four-qubit Pauli-word decomposition only"
+}

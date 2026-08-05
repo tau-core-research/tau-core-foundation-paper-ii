@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this manuscript, please cite it as below."
+title: "Finite Source Signatures, Joint Incidence, and Representation Uniqueness"
+type: article
+authors:
+  - family-names: Olcsak
+    given-names: Jozsef
+year: 2026
+version: 0.1
+license: MIT
