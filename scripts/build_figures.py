@@ -92,11 +92,29 @@ def selection_and_stability(path):
     fig.tight_layout(); fig.savefig(path, bbox_inches="tight"); plt.close(fig)
 
 
+def foundation_series_map(path):
+    fig, ax = plt.subplots(figsize=(8.2, 3.0))
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
+    add_box(ax, .03, .52, .27, .20, "Paper I\narchitecture + conditional completion", "#eaf4ea")
+    add_box(ax, .365, .52, .27, .20, "Paper II\nfinite source sufficiency + incidence", "#f3efff")
+    add_box(ax, .70, .52, .27, .20, "Paper III\nrecord transport + recovery", "#eaf2ff")
+    add_arrow(ax, (.30, .62), (.365, .62))
+    add_arrow(ax, (.635, .62), (.70, .62))
+    add_box(ax, .19, .18, .62, .15,
+            "shared open arrow: physical base--seed selection and occupation", "#f7dfdf")
+    ax.text(.5, .93, "Foundation sequence and dependency direction",
+            ha="center", fontsize=11.5, fontweight="bold")
+    ax.text(.5, .08, "Later papers refine sufficient internal conditions; they do not prove nature-level selection.",
+            ha="center", fontsize=7.8)
+    fig.tight_layout(); fig.savefig(path, bbox_inches="tight"); plt.close(fig)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True); SRC.mkdir(parents=True, exist_ok=True)
     paths = [OUT / "fig_source_signature_pipeline.pdf", OUT / "fig_pauli_dimension_audit.pdf",
-             OUT / "fig_selection_stability.pdf"]
+             OUT / "fig_selection_stability.pdf", OUT / "fig_foundation_series_map.pdf"]
     signature_pipeline(paths[0]); marginal_dimensions(paths[1]); selection_and_stability(paths[2])
+    foundation_series_map(paths[3])
     for path in paths:
         shutil.copy2(path, SRC / path.name)
     print("WROTE", *paths)

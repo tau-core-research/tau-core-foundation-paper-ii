@@ -39,3 +39,5 @@ Outputs:
 - `arxiv_submission_source.zip`
 
 The current manuscript is 16 A4 pages and the public package tests pass 5/5.
+Its opening series map and notation ledger use the same dependency direction
+and symbols as Foundation Papers I and III.
