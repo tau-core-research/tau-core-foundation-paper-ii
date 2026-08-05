@@ -28,6 +28,8 @@ def test_claim_markers():
         "Onto-incidence faithful-state theorem",
         "Compression of finite joint selection",
         "does not construct or occupy",
+        "Later source-completion status",
+        "current-reduct counterpair",
     ]:
         assert marker in text
 

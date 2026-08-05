@@ -27,6 +27,12 @@ The paper does not prove that the physical Tau parent creates or occupies the
 required joint incidence or `Pi_phys`. It contains finite representation and
 non-identifiability theorems, not empirical validation or terminal physics.
 
+A later hub backport now records that one enriched primary packet conditionally
+constructs the joint algebra, faithful state, onto incidence and representation
+target used here. This closes internal realizability, not Nature-level
+selection: an inequivalent energy-sharing completion has the same current
+narrow reduct, so physical base--seed ownership and occupation remain open.
+
 ## Reproduce
 
 ```bash
