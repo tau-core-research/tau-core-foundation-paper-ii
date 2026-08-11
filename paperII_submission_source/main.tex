@@ -14,7 +14,7 @@
 \newcommand{\Jocc}{\mathcal J_s}
 
 \title{\textbf{Finite Source Signatures, Joint Incidence, and Representation Uniqueness}\\
-\large Tau Core Foundation Paper II}
+\large Tau Core Technical Paper I (Series Paper II)}
 \author{Jozsef Olcsak\\\small Independent researcher}
 \date{Draft v0.2 --- 2026}
 
@@ -45,10 +45,58 @@ finite source information and exact non-identifiability boundaries.  They do
 not prove that a physical base--seed parent creates, selects, or occupies the
 required joint incidence or \(\Pi_{\rm phys}\), and they do not derive
 terminal physics, the Standard Model, or empirical validation.
-This is the second part of a three-paper foundation sequence: Paper I freezes
-the architecture and conditional completion, while Paper III analyzes record
-transport and recovery after a source packet has been fixed.
+Later source-selection results sharpen this boundary: cyclic generated support
+is sufficient to reach every typed source block, and occupied stable records
+select the complete packet inside the declared source-irredundant MVP class.
+Neither statement identifies that class with the unrestricted physical parent.
+The common readout architecture further requires one source-owned observer
+access map before terminal branching; separate terminal marginals do not
+establish that shared morphology-conditioned origin.
+This is the second stage of a seven-stage foundation programme: Paper I freezes
+the architecture and conditional completion, Paper III analyzes record
+transport, Paper IV isolates physical parent-law realization, Paper V develops
+temporal descent and Paper VI the quantum terminal.  Paper VII is issued as the
+focused VII-A--VII-C triptych.  These downstream papers do not alter the
+source-signature theorems proved here or select their physical occupation.
 \end{abstract}
+\begin{center}
+\fbox{\begin{minipage}{.90\linewidth}
+\textbf{Dependency and ownership box.}
+
+\textbf{Inputs from earlier papers:} Paper I supplies the types
+\(s,M_\tau,A_O,T^{(a)},Q_O^{(a)}\), the body-first/source-freeze discipline and
+the requirement of one common source before terminal branching.
+
+\textbf{Results owned here:} complete finite typed source signatures; minimal
+cyclic GNS uniqueness; exact marginal non-identifiability; onto-incidence
+faithful occupation; representation/occupation separation; and the cyclic
+generated-support criterion. Physical parent-class selection and record
+transport are not proved here.  A downstream scalar-15/type-II application
+uses this reconstruction language to identify one class-relative minimal
+base--seed preimage; that specialization does not enlarge the theorem set of
+this paper.
+\end{minipage}}
+\end{center}
+
+\begin{center}
+\fbox{\begin{minipage}{0.92\linewidth}\small
+\textbf{Atemporal parent-realization terminology.}
+Because the Tau parent is atemporal, phrases such as \emph{Nature selects} do
+not denote an external agent or a later choice. Their precise meaning is the
+internal physical implication
+\[
+ (B_\tau^{\rm phys},s_U,\mathcal L_{\rm parent})
+ \Longrightarrow \mathfrak P,
+\]
+together with occupation of the support of the resulting packet
+$\mathfrak P$. A theorem inside a declared completion proves only
+class-relative realization. It does not prove this unrestricted base--seed
+arrow, and agreement of finitely many terminal readouts cannot by itself
+establish ambient-source exhaustivity. Current-facing statements therefore
+use \emph{parent-law realization} and \emph{physical occupation}; any retained
+legacy selection language is shorthand for this same distinction.
+\end{minipage}}
+\end{center}
 \tableofcontents
 \clearpage
 
@@ -69,7 +117,7 @@ This paper proves conditional finite-algebra results.  It may claim
 representation uniqueness after a complete source signature, exact marginal
 no-go theorems, and an onto-incidence sufficient criterion.  It may not infer
 physical occupation from these implications.  In particular, the notation
-\(\Pi_{\rm phys}\) names a physical selection target; it does not assert that
+\(\Pi_{\rm phys}\) names a physical realization target; it does not assert that
 the target has been derived.
 
 \begin{figure}[t]
@@ -97,6 +145,37 @@ Symbol & Series-wide meaning & Primary treatment\\
 \bottomrule
 \end{tabular}
 \end{center}
+
+\subsection*{Morphology-conditioned readout interface}
+
+Paper I writes every working primitive readout as
+\begin{equation}
+ Y_O^{(a)}=Q_O^{(a)}\circ T^{(a)}\circ A_O[M_\tau].
+ \label{eq:mcpr-interface}
+\end{equation}
+For this paper, Eq.~\eqref{eq:mcpr-interface} is a source-signature
+requirement. A complete joint packet must determine the common observer
+access $A_O$, the typed terminal precursors $T^{(a)}$, the stable
+resolution maps $Q_O^{(a)}$, and the overlap/null relations needed to compare
+observers. Supplying separate terminal states without this common factor does
+not prove common source ownership.
+
+Before the finite quantizers act, the stacked terminal differential satisfies
+\begin{equation}
+ \operatorname{rank}
+ \begin{bmatrix}
+ D(T^{(1)}\circ A_O)\\[-1mm]
+ \vdots\\[-1mm]
+ D(T^{(n)}\circ A_O)
+ \end{bmatrix}
+ \leq \operatorname{rank}A_O.
+ \label{eq:mcpr-rank}
+\end{equation}
+Consequently named time, quantum, gravity, matter, radiation or gauge
+marginals can double count one accessible source direction. The GNS and joint
+incidence results below decide representation only after the complete typed
+signature is supplied; they do not derive $A_O$, the terminal family or its
+physical occupation.
 
 \begin{figure}[t]
  \centering
@@ -176,7 +255,8 @@ typed-unitarily equivalent? & The finite GNS theorem below.\\
 Identifiability & Do the retained observables determine the complete packet? &
 A separating-rank test, or a countermodel in the kernel of the retained
 descriptor.\\
-Physical selection & Why is one admissible packet occupied by Nature? & A
+Physical realization & Why does the base--seed parent law realize and occupy
+one admissible packet? & A
 base--seed source law or independent experiment; neither follows from the
 other three rows.\\
 \bottomrule
@@ -239,7 +319,8 @@ present theorem therefore claims uniqueness of the typed minimal cyclic
 realization, not uniqueness of every implementation of its CP operations.
 
 The theorem begins \emph{after} the source signature has been supplied.  It
-does not show that a physical parent selects \(\Sigma_s\).  If a signature map
+does not show that the unrestricted physical parent law realizes and occupies
+\(\Sigma_s\).  If a signature map
 \(\Phi_s\) is faithful modulo typed source isometry and the post-quotient
 metric is positive, then
 \begin{equation}
@@ -680,7 +761,7 @@ theorem even though it preserves the diagonal family.
 \begin{figure}[t]
  \centering
  \includegraphics[width=.96\linewidth]{figures/fig_selection_stability.pdf}
- \caption{Left: existence, uniqueness, identifiability and physical selection
+ \caption{Left: existence, uniqueness, identifiability and physical realization
  require separate audits.  Right: the worked packet stays faithful for every
  \(\delta>0\) while its Gram condition number diverges as rank loss is
  approached.}
@@ -714,7 +795,7 @@ Modification & Mathematical result & Scientific diagnosis\\
 \endhead
 \(k_0=k_1\), \(\delta=1\) & \(G=I\),
 \(\rho=I/2\), \(\kappa(G)=1\) & Symmetric, well-conditioned occupied packet;
-still no proof of physical selection.\\
+still no proof of physical realization.\\
 \(0<\delta\ll1\) & \(G>0\) but
 \(\kappa(G)=\delta^{-2}\gg1\) & Exact faithfulness survives, while finite
 precision makes the weak direction difficult to reconstruct.\\
@@ -735,7 +816,8 @@ source ownership or select the physical parameter triple.\\
 The rows give mutually different remedies.  Rank loss requires a smaller
 support theorem; descriptor failure requires additional predeclared
 observables; nonmultiplicative dynamics require a CP/recovery analysis; and
-nature-selection failure requires an upstream source law or independent
+failure of unrestricted parent-law realization requires an upstream source
+law or independent
 overdetermination.  None is repaired by merely improving the fit of
 Eq.~\eqref{eq:worked-state} to one measured density matrix.
 
@@ -755,7 +837,8 @@ A finite source-signature claim should declare:
 \end{enumerate}
 
 Passing this audit proves informational completeness relative to the declared
-finite claim.  It does not prove that Nature realizes the audited source.
+finite claim.  It does not prove unrestricted parent-law realization or
+physical occupation of the audited source.
 
 \subsection{A reproducible finite audit matrix}
 
@@ -813,7 +896,7 @@ What is specific to this program is the division of labor:
   \text{minimal cyclic representation},\\
   \text{descriptor-rank audit},\\
   \text{incidence-generated occupation},\\
-  \text{explicit nature-selection blocker}.
+  \text{explicit parent-realization blocker}.
  \end{cases}
  \label{eq:division-of-labor}
 \end{equation}
@@ -833,7 +916,8 @@ jointly determine:
  \item the source-leg stiffness \(K_s\) and incidence \(R_J\);
  \item a faithful occupied state or a declared support reduction;
  \item the equivalence group, including which automorphisms are gauge; and
- \item the terminally relevant descriptors without endpoint-dependent
+ \item the terminally relevant descriptors, their common observer-access
+ factor, stable resolution maps and overlap laws without endpoint-dependent
  tuning.
 \end{enumerate}
 An action principle could supply such data only if its variables and symmetry
@@ -843,7 +927,7 @@ support or reject the rank, positivity and shared-parameter consequences of a
 candidate packet, but cannot by itself prove that the base--seed parent is its
 ontological source.
 
-This distinction gives a finite reopening rule.  The physical-selection branch
+This distinction gives a finite reopening rule.  The physical-realization branch
 is promoted only by either (i) a source theorem deriving (P1)--(P6), or (ii) a
 source-frozen experiment whose independent observables overdetermine the same
 packet and reject its allowed alternatives.  Additional terminal fits without
@@ -854,11 +938,90 @@ such overdetermination do not close the arrow.
 The primary source-irredundant enriched completion now conditionally supplies
 one joint algebra/state/incidence packet of the required type, together with
 the typed quotient representation and the once-counted structural ledger.
-This closes internal nonemptiness for the adopted regular branch, not physical
-selection. An inequivalent completion with an independent base
+This closes internal nonemptiness for the adopted regular branch, not
+unrestricted physical realization. An inequivalent completion with an independent base
 causal-work/energy-sharing carrier has the same current narrow source reduct.
-No selector using only that reduct can therefore establish that Nature
-occupies the primary packet.
+No selector using only that reduct can therefore establish parent-law
+realization and physical occupation of the primary packet.
+
+The later scalar-15/type-II packet supplies a useful finite application of
+this distinction.  After the recovery-complete, source-generated and
+source-irredundant branch class is frozen, its represented source signature
+reconstructs a pointed exterior \(V_5\) grammar, a positive Hermitian/Hodge
+base realization and the typed edge
+\begin{equation}
+ e_{HH\Delta}:\operatorname{Sym}^2V_5\longrightarrow S_{15},
+ \qquad \dim\operatorname{Sym}^2V_5=15.
+ \label{eq:downstream-scalar15-signature}
+\end{equation}
+This is class-relative source reconstruction in exactly the sense separated
+here from ambient realization.  It neither proves that the unrestricted
+physical parent occupies the type-II branch nor allows terminal data to
+choose the source signature retroactively.
+
+\subsection{Generated-support occupation handoff}
+
+The eight ownership blocks used by the physical-realization audit are typed
+dependency blocks. They need not be independent central summands of the finite
+algebra, and a compressed universal seed need not carry one primitive
+component in every block. Let
+\begin{equation}
+ E_{\rm src}=\bigoplus_{i=0}^{7}E_i,
+ \qquad p_i:E_{\rm src}\to E_i,
+\end{equation}
+and let \(\mathcal A_{\rm src}\) be the source-operation algebra generated by
+the frozen dependency ledger.
+
+\begin{proposition}[Cyclic generated-support criterion]
+If the realized seed response \(\Omega_s\) is cyclic for a faithful
+representation of \(\mathcal A_{\rm src}\),
+\begin{equation}
+ \overline{\mathcal A_{\rm src}\Omega_s}=E_{\rm src},
+ \label{eq:generated-support-cyclicity}
+\end{equation}
+then every typed block is reached:
+\begin{equation}
+ p_i\overline{\mathcal A_{\rm src}\Omega_s}=E_i\ne0,
+ \qquad i=0,\ldots,7.
+ \label{eq:generated-support-blocks}
+\end{equation}
+If the declared operation closure generates every owned role within each
+reached block, the complete typed packet is occupied.
+\end{proposition}
+
+\begin{proof}
+Apply the continuous projection \(p_i\) to
+Eq.~\eqref{eq:generated-support-cyclicity}. This gives
+\(p_i\overline{\mathcal A_{\rm src}\Omega_s}=p_iE_{\rm src}=E_i\).
+Faithfulness prevents a generated nonzero direction from being annihilated;
+the final occupation statement is exactly the declared operation-closure
+condition. Notice that the proof does not require \(p_i\Omega_s\ne0\).
+\end{proof}
+
+In a local positive stationary-response chart,
+\begin{equation}
+ K_{\rm src}\,\delta z=j_s,
+\end{equation}
+the corresponding finite block-reachability check is
+\begin{equation}
+ p_iK_{\rm src}^{-1}j_s\ne0,
+ \qquad i=0,\ldots,7.
+ \label{eq:local-block-reachability}
+\end{equation}
+This is a criterion for the frozen quadratic response, not a general
+equivalence to cyclicity for nonlinear parent laws.
+
+The current general base--seed reduct does not force
+Eq.~\eqref{eq:generated-support-cyclicity}: an occupied model and a model with
+one omitted typed block can share that reduct, and a terminally invisible
+positive direct summand cannot be excluded by finitely many terminal
+descriptors. Paper IV adds the physical branch statement. Within the declared
+source-irredundant MVP carrier class, its cyclic faithful working parent,
+nonzero dagger-Frobenius record unfolding and observed existence of a redundant
+stable record propagate through the frozen dependency ledger and select
+complete packet occupation. This is conditional physical realization inside
+that carrier class, not a proof that the ambient parent has no rank-novel
+completion.
 
 \section{What remains open}
 
@@ -871,18 +1034,22 @@ The internal alternatives are now finite:
  \text{unital \(*\)-homomorphism}&\Rightarrow&\text{faithful quotient representation}.
  \end{array}
 \end{equation}
-The Tau-specific blocker is the physical source of the third line and of
-\(\Pi_{\rm phys}\).  Neither GNS uniqueness nor the dimension audit selects
-that source.  Terminal fits cannot fill the gap without violating source
-freeze.
+The Tau-specific blocker is now split. Generated-support occupation is settled
+by Eqs.~\eqref{eq:generated-support-cyclicity}--
+\eqref{eq:local-block-reachability}, and the source-irredundant MVP supplies a
+conditional occupied realization. What remains open is whether the
+unrestricted physical parent selects that MVP carrier class and excludes
+rank-novel alternatives. Neither GNS uniqueness nor the dimension audit can
+settle this larger ontology question, and terminal fits cannot fill it without
+violating source freeze.
 
 In particular, this paper does not prove:
 \begin{itemize}
  \item that the universal morphology seed exists or contains all primitive
  ordering information;
  \item that the physical base creates the declared finite algebra, faithful
- source state, onto incidence, or \(\Pi_{\rm phys}\) as a uniquely
- Nature-selected packet; one enriched packet constructs them conditionally;
+ source state, onto incidence, or \(\Pi_{\rm phys}\) as a uniquely physically
+ realized packet; one enriched packet constructs them conditionally;
  \item that the incidence-generated state and the representation map descend
  from one microscopic once-counted functional;
  \item that terminal gravity, time, quantum, matter, gauge, or cosmological
@@ -896,11 +1063,26 @@ The proper conclusion from a failed rank or occupation test is demotion of the
 candidate packet.  It is not permission to add an independently fitted joint
 coefficient.
 
+\section{Finite irreducible support handoff}
+
+For an irreducible finite extension \(E_\lambda\), define
+\[
+ S_{E,\lambda}=C_\lambda-B_\lambda^\dagger A^{-1}B_\lambda,
+ \qquad
+ k_{{\rm eff},\lambda}=k_\lambda-B_\lambda^\dagger A^{-1}j.
+\]
+When \(S_{E,\lambda}>0\), its occupied component is
+\(e_{*,\lambda}=S_{E,\lambda}^{-1}k_{{\rm eff},\lambda}\).
+Positive seed-unloaded split irreps therefore have zero occupation; stable
+loaded or cross-coupled irreps belong to generated support. The current CHDF
+\([22]\) complement is the explicit zero-load, zero-mixed-block control. This
+is finite-local support completeness, not ambient representation exhaustivity.
+
 \section{Conclusion}
 
 Finite source signatures separate four questions often conflated in
 foundation models: existence, representation uniqueness, identifiability and
-physical selection.  Complete source data determine a unique minimal cyclic
+physical realization.  Complete source data determine a unique minimal cyclic
 realization, but terminal marginals need not determine those source data.  For
 \(n\) qudits, all proper marginals miss a full-weight subspace of dimension
 \((d^2-1)^n\); the four-qubit value is 81.
@@ -909,17 +1091,35 @@ One onto source incidence with positive stiffness is sufficient to generate a
 faithful joint state, with conditioning controlled by the extremal singular
 values of the incidence.  A coherent unital \(*\)-homomorphism
 \(\Pi_{\rm phys}\) separately compresses the ideal and representation choice.
-These are constructive finite targets, not nature-selection theorems.
+These are constructive finite targets, not unrestricted
+parent-realization theorems.
 The primary enriched branch conditionally realizes the finite target listed in
-(P1)--(P6), but physical base--seed ownership and joint occupation remain
-unselected. The current-reduct counterpair proves that this is not removable by
-another representation theorem on the same narrow data.
+(P1)--(P6). Cyclic generated support supplies an exact occupation criterion,
+and stable record existence selects the occupied complete packet inside the
+declared source-irredundant MVP class. Ambient parent-class selection remains
+open. The current-reduct counterpair proves that this larger gap is not
+removable by another representation theorem on the same narrow data.
+
+The scalar-15 application confirms the intended use of the formalism: once a
+physical branch class is declared, a complete signature can reconstruct its
+minimal preimage and expose every remaining occupation assumption.  It is not
+an additional proof that Nature realizes that branch.
 
 The series handoff is therefore finite: Paper I supplies the architectural
 types, this paper supplies tests for source sufficiency and representation
 uniqueness, and Paper III begins only after such a packet and its occupied
 support have been frozen.  Transport success cannot be used retroactively to
 infer the source packet, and source identifiability does not imply transport.
+
+A later cross-terminal lifting theorem makes the same distinction at parent
+level. Faithfulness of a state or GNS representation on an already selected
+finite algebra is not yet faithfulness of the stacked physical readout on
+every typed cross-component parent-action defect. If that stronger joint
+faithfulness holds, exact operational composition forces the parent
+disjoint-source valuation. Without it, two positive parent Hessians can have
+identical terminal reducts while only one is component-additive. Thus the
+finite source certificates proved here are necessary inputs to that lift, but
+do not close it by themselves.
 
 \appendix
 \section{Finite verification protocol}
@@ -993,12 +1193,12 @@ The dependency graph is short enough to state without hiding assumptions:
  \item A unital \(*\)-homomorphism selects a relation ideal and faithful
  quotient representation, but not its physical occupation.
  \item A base--seed source theorem must jointly own the data in (D1)--(D5) to
- close the Tau-specific nature-selection arrow.
+ close the Tau-specific parent-realization arrow.
 \end{enumerate}
 
 No implication runs backward without extra hypotheses.  In particular,
 faithful occupation does not imply onto incidence in every presentation,
-identifiability does not imply physical selection, and a faithful quotient
+identifiability does not imply physical realization, and a faithful quotient
 representation does not determine a unique state.
 
 \bibliographystyle{unsrt}

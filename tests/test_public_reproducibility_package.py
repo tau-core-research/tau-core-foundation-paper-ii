@@ -21,7 +21,7 @@ def test_required_files_exist():
 def test_claim_markers():
     text = TEX.read_text()
     for marker in [
-        "Foundation Paper II",
+        "Technical Paper I (Series Paper II)",
         "Finite source-signature representation uniqueness",
         "Two-sector marginal no-go",
         "Four-sector all-proper-marginal no-go",
