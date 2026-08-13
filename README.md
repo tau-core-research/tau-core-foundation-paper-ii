@@ -28,6 +28,14 @@ terminal readouts also cannot establish ambient-source exhaustivity. The
 current terminology is therefore **parent-law realization** and **physical
 occupation**.
 
+## Observer Co-Descent
+
+This paper inherits Paper I's convention: `O` is a body-side carrier candidate
+before operational closure. Rank-four descent, stable quantization and a
+nonzero record/effect co-produce the observer and its accessible 4D world.
+The finite source signature supports this closure but is not observerhood by
+itself.
+
 
 The paper covers:
 
