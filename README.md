@@ -10,6 +10,16 @@ Foundation Paper I. It identifies the source information required before the
 record-transport problem treated in Technical Paper II (series Paper III) is
 meaningful.
 
+## Joint Source Integration
+
+Paper II is the mathematical owner of the new compression result. Given one
+coherent source representation/state datum `J_* = (Pi_*, phi_*)`, the mixed
+relation ideal, separator multiplicity matching, relative P3--P4 gluing and
+faithful block occupation are descendants of that datum, not independent
+source switches. Same-reduct cross-moment countermodels prove that the current
+narrow source does not entail `J_*`. The enriched MVP adopts it conditionally;
+Nature-level realization and global terminal completeness remain open.
+
 ## Atemporal Parent-Realization Terminology
 
 Because the Tau parent is atemporal, “Nature selects” does not mean an
@@ -36,6 +46,21 @@ nonzero record/effect co-produce the observer and its accessible 4D world.
 The finite source signature supports this closure but is not observerhood by
 itself.
 
+## Inherited Minimal Formation Basis
+
+Paper II inherits Paper I's joint-law-first definition: the base is the
+protected zero-source response structure, the seed is a response-distinct
+base-relative source class, and the body is a stable selected nonneutral
+response. The split is canonical only after a physical zero source is fixed.
+The finite representation results here neither derive that joint law nor
+select its physical seed occupation.
+
+The same boundary now covers temporal structure. A finite signature can type
+an occurrence-order covector, response form and access incidence, but GNS or
+incidence uniqueness does not prove EOCC actuality, literal Parent traversal
+or observer-clock recovery. Downstream finite acyclic interventional
+equivalence cannot be used backward to choose the source signature.
+
 
 The paper covers:
 
@@ -61,6 +86,13 @@ The paper covers:
 An exact Schur criterion now closes finite-local support: positive unloaded
 split irreps have zero occupation, while stable loaded or cross-coupled irreps
 belong to generated support. Ambient representation exhaustivity remains open.
+
+The Paper IV handoff now gives this an operational interpretation. Under the
+enriched one-source premise and after true-null quotienting, a complete source
+signature fixes the occupied physical representation class. Inert ambient
+summands remain mathematically possible but add no physical content; a
+non-null same-complete-source-key difference is a second source or an
+incomplete signature. The premise itself remains Nature-level open.
 
 Faithful finite occupation in this paper is distinct from global
 cross-terminal faithfulness. The latter is the injectivity needed to lift
@@ -91,6 +123,6 @@ Outputs:
 - `paperII_submission_source/main.pdf`
 - `arxiv_submission_source.zip`
 
-The current manuscript is 18 A4 pages and the public package tests pass 5/5.
+The current manuscript is 20 A4 pages and the public package tests pass 5/5.
 Its opening series map and notation ledger use the same dependency direction
 and symbols as Foundation Papers I and III.
