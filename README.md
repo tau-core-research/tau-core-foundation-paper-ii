@@ -123,6 +123,14 @@ Outputs:
 - `paperII_submission_source/main.pdf`
 - `arxiv_submission_source.zip`
 
-The current manuscript is 20 A4 pages and the public package tests pass 5/5.
+The current manuscript is 21 A4 pages and the public package tests pass 5/5.
 Its opening series map and notation ledger use the same dependency direction
 and symbols as Foundation Papers I and III.
+
+## Unified Selection Update (2026-08-27)
+
+`PD-USS1` uses this paper's coherent representation/state packet as a premise
+but also requires a source-owned grading, reversible transport and actuality
+law. It does not follow from GNS uniqueness or joint incidence. The `0/31`
+public pair census leaves physical occupation open and changes none of the
+finite source-signature theorems.
