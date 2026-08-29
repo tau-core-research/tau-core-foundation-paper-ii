@@ -16,7 +16,7 @@
 \title{\textbf{Finite Source Signatures, Joint Incidence, and Representation Uniqueness}\\
 \large Tau Core Technical Paper I (Series Paper II)}
 \author{Jozsef Olcsak\\\small Independent researcher}
-\date{Draft v0.2 --- Last revised: 27 August 2026}
+\date{Draft v0.2 --- Last revised: 29 August 2026}
 
 \begin{document}
 \maketitle
@@ -127,6 +127,22 @@ body-conditioned solution.  Neither a four-dimensional chart nor carrier
 support alone is sufficient, and the readout relation is not an independent
 physical layer.  This paper inherits that architecture from Paper I and
 addresses only the finite source signature that can support it.
+
+This finite signature does not by itself determine the upstream
+four-dimensional reconstruction packet.  In particular, Paper II neither
+selects a universal body-side derivation family $\mathfrak d_\tau$ nor its
+source-owned observer restriction $R^{\mathfrak d}_{OS}$, and it does not
+prove
+\[
+ \operatorname{rank}\!\left(\widetilde\Phi_{OS,x}
+       \circ R^{\mathfrak d}_{OS}\right)=4.
+\]
+The same separator/representation data admit completions with different
+visible restrictions, so rank four, Frobenius integrability,
+Lorentz-conformal realizability and DA--ROOT/M4TR same-carrier agreement are
+downstream physical gates.  Representation uniqueness in the declared finite
+packet may constrain a candidate restriction only after that restriction is
+source-owned; it cannot infer it from the desired terminal geometry.
 
 \paragraph{Inherited minimal formation basis.}
 Paper I defines the base as the protected zero-source response structure of a
@@ -1207,6 +1223,47 @@ carrier. Those assumptions are not consequences of GNS uniqueness or joint
 incidence. The current $0/31$ public two-role census therefore leaves the
 physical source occupation of this paper's packet open and changes none of
 its representation or marginal-kernel theorems.
+
+\section{Finite Gram characterization of a supplied readout packet}
+
+The overlap formulation admits one exact finite theorem, provided its input
+is kept source-owned.  Let $\mathcal A_{OS}$ be an already supplied observer--
+source algebra, $\omega_{OS}$ a positive state, and $x_a$ non-null probes.
+Define
+\begin{equation}
+ G_{ab}=
+ \frac{\omega_{OS}(x_a^*x_b)}
+ {\sqrt{\omega_{OS}(x_a^*x_a)\omega_{OS}(x_b^*x_b)}}.
+ \label{eq:paperII-gns-gram}
+\end{equation}
+Then
+\begin{equation}
+ G=G^\dagger,\qquad G\succeq0,\qquad G_{aa}=1.
+ \label{eq:paperII-correlation-matrix}
+\end{equation}
+Conversely, every finite matrix satisfying
+Eq.~\eqref{eq:paperII-correlation-matrix} is the Gram matrix of unit vectors,
+and its minimal realizing Hilbert dimension is $\operatorname{rank}G$.  The
+proof is the finite Gram factorization $G=X^\dagger X$; the forward direction
+is positivity of $z^\dagger Gz=\|Xz\|^2$.
+
+This characterization closes a representation question, not the source
+question studied by this paper.  The finite converse recovers a ray family
+only up to unitary equivalence.  It does not recover the physical algebra,
+state, probe semantics, seed grading, relation grammar or occupied source
+sector.  The explicit controls
+\begin{equation}
+ G_1=I_n,
+ \qquad
+ G_2=\mathbf1\mathbf1^*
+ \label{eq:paperII-gram-counterpair}
+\end{equation}
+both satisfy Eq.~\eqref{eq:paperII-correlation-matrix}, while
+$\operatorname{rank}G_1=n$ and $\operatorname{rank}G_2=1$.  Therefore Gram
+closure cannot certify the completeness of the language from which the Gram
+matrix was built.  In Tau Core it may audit an independently frozen
+source/readout family, but it cannot replace the source-completeness and
+Nature-occupation obligations of this paper.
 
 \section{Conclusion}
 
