@@ -30,6 +30,10 @@ def test_claim_markers():
         "does not construct or occupy",
         "Later source-completion status",
         "current-reduct counterpair",
+        "eq:source-signature-migration",
+        "D_{OS}^{\\rm op}=Q_{OS,\\delta}",
+        "Equal rank is insufficient",
+        "does not derive the physical",
     ]:
         assert marker in text
 

@@ -1,5 +1,12 @@
 # Tau Core Technical Paper I
 
+**Morphology convention:** the base is the pre-readout carrier, the seed is
+its base-readable relational/load pattern, and (M_\tau^\star) is the complete
+stabilized morphological response configuration (short name: morphological
+body). Atemporal selection, literal traversal and observer time are distinct.
+MRC-DEF2 treats the upstream base/seed as typed pregeometric relational
+candidates, not ordinary spacetime objects; Nature occupation remains open.
+
 **Foundation-series position:** Paper II
 
 ## Finite Source Signatures, Joint Incidence, and Representation Uniqueness
@@ -60,6 +67,25 @@ an occurrence-order covector, response form and access incidence, but GNS or
 incidence uniqueness does not prove EOCC actuality, literal Parent traversal
 or observer-clock recovery. Downstream finite acyclic interventional
 equivalence cannot be used backward to choose the source signature.
+
+## Inherited Descriptor-Migration Boundary
+
+Paper II now keeps Paper I's continuous common descriptor separate from its
+finite operational record:
+
+\[
+\Xi_{OS}^{\mathrm{cont}}=\Phi_{OS}[M_\tau],
+\qquad
+D_{OS}^{\mathrm{op}}=Q_{OS,\delta}(\Xi_{OS}^{\mathrm{cont}}).
+\]
+
+A legacy finite source descriptor (L) can be imported only when
+(L=U\circ\Xi_{OS}^{\mathrm{cont}}), equivalently when the
+(\Xi_{OS}^{\mathrm{cont}})-fibres refine the (L)-fibres. Equality of fibre
+relations gives exact equivalence; equal rank or dimension alone does not.
+This condition preserves the source-signature theorem's domain without
+claiming that Paper II derives the physical quantizer, its calibration,
+(q_R(R)), or Nature occupation.
 
 
 The paper covers:
@@ -134,3 +160,23 @@ but also requires a source-owned grading, reversible transport and actuality
 law. It does not follow from GNS uniqueness or joint incidence. The `0/31`
 public pair census leaves physical occupation open and changes none of the
 finite source-signature theorems.
+
+<!-- BEGIN OBSERVER UPDATE 20260914 -->
+## Observer realization update (2026-09-14)
+
+The occupied observer--source context is relational instance data, not a uniquely selected observer identity inferred from the universal seed alone. Physical source realization and record preparation remain separate from conditional closure.
+
+The manuscript distinguishes inherited BRAC contact, conditional coherent-state
+selection and interacting local covariance from physical observer identification,
+preparation and stable resolution. Those physical claims remain open. No
+empirical score was changed. The [dependency and source-result ledger](data/derived/observer_update_2026_09_14.json) records the assumptions and controls.
+<!-- END OBSERVER UPDATE 20260914 -->
+
+<!-- BEGIN LAB UPDATE 20260915 -->
+## Finite lab integration (2026-09-15)
+
+The manuscript imports the scope-specific source, body, observer or terminal
+result from the current lab. Supplied priors, conditional recovery and physical
+selection remain separate. No SI constant, viable universe or Tau-specific
+signal is newly established. See the [source and ownership ledger](data/derived/lab_update_2026_09_15.json).
+<!-- END LAB UPDATE 20260915 -->
