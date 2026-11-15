@@ -16,48 +16,12 @@
 \title{\textbf{Finite Source Signatures, Joint Incidence, and Representation Uniqueness}\\
 \large Tau Core Technical Paper I (Series Paper II)}
 \author{Jozsef Olcsak\\\small Independent researcher}
-\date{Draft v0.2 --- Last revised: 29 August 2026}
+\date{Last revised: 14 November 2026}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-We study a finite source-selection problem that precedes terminal physical
-readouts.  A complete typed source signature consists of a finite-dimensional
-unital \(C^*\)-algebra, a faithful source state, multiplication and involution
-data, and distinguished role elements or completely positive maps.  The GNS
-construction then gives a unique minimal cyclic realization up to the typed
-unitary equivalences already declared in the source packet.
-
-This positive theorem does not make terminal marginals sufficient.  Two
-faithful bipartite states can share both marginals and differ in a joint
-moment.  More strongly, four-qubit states can share every proper marginal
-while differing along the 81-dimensional weight-four Pauli subspace; proper
-marginals span only 174 of 255 traceless directions.  A single source-owned
-onto joint incidence with positive stiffness is sufficient to generate a
-faithful joint Gram state and hence all finite mixed moments.  Equivalently,
-one coherent source homomorphism \(\Pi_{\rm phys}\) selects the physical
-relation ideal and its faithful quotient representation.
-
-We extend the four-qubit count to arbitrary \(n\)-partite qudit systems and
-give singular-value bounds that quantify how an onto incidence becomes
-ill-conditioned before rank is lost.  The results characterize sufficient
-finite source information and exact non-identifiability boundaries.  They do
-not prove that a physical base--seed parent creates, selects, or occupies the
-required joint incidence or \(\Pi_{\rm phys}\), and they do not derive
-terminal physics, the Standard Model, or empirical validation.
-Later source-selection results sharpen this boundary: cyclic generated support
-is sufficient to reach every typed source block, and occupied stable records
-select the complete packet inside the declared source-irredundant MVP class.
-Neither statement identifies that class with the unrestricted physical parent.
-The common readout architecture further requires one source-owned observer
-access map before terminal branching; separate terminal marginals do not
-establish that shared morphology-conditioned origin.
-This is the second stage of a seven-stage foundation programme: Paper I freezes
-the architecture and conditional completion, Paper III analyzes record
-transport, Paper IV isolates physical parent-law realization, Paper V develops
-temporal descent and Paper VI the quantum terminal.  Paper VII is issued as the
-focused VII-A--VII-C triptych.  These downstream papers do not alter the
-source-signature theorems proved here or select their physical occupation.
+We study the finite source-identification problem that precedes terminal physical readouts in Tau Core. A complete typed source signature consists of a finite-dimensional unital \(C^*\)-algebra, a faithful source state, multiplication and involution tables, and distinguished role elements or completely positive maps; the GNS construction then yields a unique minimal cyclic realization up to declared typed unitary equivalences. Terminal marginals are strictly weaker: for \(n\)-partite \(d\)-level systems, all proper marginals miss the \((d^2-1)^n\)-dimensional full-weight tensor subspace (spanning only \(174\) of \(255\) traceless Pauli directions for four qubits, leaving \(81\) weight-four directions unresolved). By contrast, a single source-owned onto joint incidence with positive stiffness generates a faithful joint Gram state, with conditioning governed by its extremal singular values, while one coherent unital \(*\)-homomorphism \(\Pi_{\rm phys}\) fixes the physical relation ideal and faithful quotient representation. Cyclic generated support reaches every typed source block inside the declared source-irredundant MVP class. These finite algebraic theorems (Technical Paper~I / Series Paper~II) do not prove that an unrestricted physical base--seed parent realizes or occupies the joint datum, and claim no Standard-Model derivation or empirical validation.
 \end{abstract}
 
 \paragraph{Inherited morphology terminology.}
@@ -335,7 +299,7 @@ define
 \begin{equation}
  G_s=R_s^{\rm dedup}K_*^{-1}(R_s^{\rm dedup})^\dagger,
  \qquad
- \rho_s={G_s\over\Tr G_s},
+ \rho_s=\frac{G_s}{\Tr G_s},
  \qquad
  \omega_s(a)=\Tr(\rho_sa).
  \label{eq:finite-source-state}
@@ -479,8 +443,8 @@ their joint source state.
 \begin{proof}
 For two qubits, compare
 \begin{equation}
- \rho_0={I_4\over4},\qquad
- \rho_\epsilon={1\over4}
+ \rho_0=\frac{I_4}{4},\qquad
+ \rho_\epsilon=\frac{1}{4}
  \left(I_4+\epsilon\,\sigma_z\otimes\sigma_z\right),
  \qquad0<|\epsilon|<1.
  \label{eq:bipartite-countermodel}
@@ -499,7 +463,7 @@ directions are required.
 For four qubits the traceless Pauli words have total dimension
 \(4^4-1=255\).  Words of weights one, two and three contribute
 \begin{equation}
- {4\choose1}3+{4\choose2}3^2+{4\choose3}3^3
+ \binom{4}{1}3+\binom{4}{2}3^2+\binom{4}{3}3^3
  =12+54+108=174.
  \label{eq:proper-span}
 \end{equation}
@@ -520,7 +484,7 @@ subsystem and different genuine four-sector moments.
 \begin{proof}
 Let
 \begin{equation}
- \rho_\epsilon={1\over16}
+ \rho_\epsilon=\frac{1}{16}
  \left(I_{16}+\epsilon\,\sigma_z^{\otimes4}\right),
  \qquad0<|\epsilon|<1.
  \label{eq:four-sector-family}
@@ -536,14 +500,14 @@ It is not a representation-independent count for every four-sector model.
 The invariant lesson is that all proper marginals may leave genuine joint
 directions unresolved.
 
-\subsection{General \(n\)-partite qudit count}
+\subsection{General \texorpdfstring{\(n\)}{n}-partite qudit count}
 
 The preceding example is the smallest calculation used by the Tau packet, but
 the obstruction is general.  Fix a Hilbert--Schmidt orthogonal Hermitian basis
 \(\{I,T_1,\ldots,T_{d^2-1}\}\) on one qudit, with every \(T_a\) traceless.
 The tensor words of weight \(w\) have dimension
 \begin{equation}
- N_w={n\choose w}(d^2-1)^w.
+ N_w=\binom{n}{w}(d^2-1)^w.
  \label{eq:weight-count}
 \end{equation}
 
@@ -553,7 +517,7 @@ annihilates the full-weight tensor subspace of dimension
 \((d^2-1)^n\).  Hence the descriptor rank on traceless Hermitian operators is
 at most
 \begin{equation}
- \sum_{w=1}^{n-1}{n\choose w}(d^2-1)^w
+ \sum_{w=1}^{n-1}\binom{n}{w}(d^2-1)^w
  =d^{2n}-1-(d^2-1)^n.
  \label{eq:proper-marginal-rank}
 \end{equation}
@@ -566,9 +530,9 @@ Tracing out any factor of a full-weight word
 is traceless.  Linear independence of the tensor-product basis gives the
 kernel dimension.  For any nonzero Hermitian full-weight word \(X\), set
 \begin{equation}
- \rho_\epsilon={I\over d^n}+\epsilon X,
+ \rho_\epsilon=\frac{I}{d^n}+\epsilon X,
  \qquad
- |\epsilon|<{1\over d^n\lVert X\rVert_{\rm op}}.
+ |\epsilon|<\frac{1}{d^n\lVert X\rVert_{\rm op}}.
  \label{eq:general-marginal-family}
 \end{equation}
 Then \(\rho_\epsilon>0\), has unit trace, and every proper marginal is
@@ -607,7 +571,7 @@ Equip \(V_J\) and \(\mathbb R^m\) with fixed Euclidean norms and let
 \end{equation}
 then
 \begin{equation}
- \lVert\rho-\sigma\rVert\le{\delta\over\sigma_D}.
+ \lVert\rho-\sigma\rVert\le\frac{\delta}{\sigma_D}.
  \label{eq:descriptor-stability}
 \end{equation}
 If \(D\) is not injective, no finite bound of this form can control components
@@ -629,7 +593,7 @@ decomposition; they do not change the exact kernel.
 For orientation, three qubits have \(4^3-1=63\) traceless Pauli directions.
 All one- and two-body words span
 \begin{equation}
- {3\choose1}3+{3\choose2}3^2=9+27=36,
+ \binom{3}{1}3+\binom{3}{2}3^2=9+27=36,
 \end{equation}
 leaving 27 weight-three directions invisible to every proper marginal.  Four
 qubits enlarge these numbers to 174 visible and 81 invisible directions.  The
@@ -649,7 +613,7 @@ Let \(\mathcal H_J\) be an occupied finite joint carrier, let
 \begin{equation}
  G_J=R_JK_s^{-1}R_J^\dagger,
  \qquad
- \rho_J={G_J\over\Tr G_J}
+ \rho_J=\frac{G_J}{\Tr G_J}
  \label{eq:joint-gram-state}
 \end{equation}
 defines a faithful density operator on \(\mathcal H_J\).  Once the typed joint
@@ -682,26 +646,25 @@ on the non-null source quotient.
 \begin{proposition}[Joint-Gram eigenvalue bounds]
 If \(R_J\) is onto, then
 \begin{equation}
- {\sigma_{\min}(R_J)^2\over k_{\max}}
+ \frac{\sigma_{\min}(R_J)^2}{k_{\max}}
  \le \lambda_{\min}(G_J)
  \le \lambda_{\max}(G_J)
- \le {\sigma_{\max}(R_J)^2\over k_{\min}}.
+ \le \frac{\sigma_{\max}(R_J)^2}{k_{\min}}.
  \label{eq:gram-bounds}
 \end{equation}
 Consequently,
 \begin{equation}
  \kappa(G_J)\le
- \kappa(K_s)\left({\sigma_{\max}(R_J)\over
- \sigma_{\min}(R_J)}\right)^2.
+ \kappa(K_s)\left(\frac{\sigma_{\max}(R_J)}{\sigma_{\min}(R_J)}\right)^2.
  \label{eq:gram-condition}
 \end{equation}
 \end{proposition}
 \begin{proof}
 For unit \(v\in\mathcal H_J\),
 \begin{equation}
- {\lVert R_J^\dagger v\rVert^2\over k_{\max}}
+ \frac{\lVert R_J^\dagger v\rVert^2}{k_{\max}}
  \le \langle v,G_Jv\rangle
- \le {\lVert R_J^\dagger v\rVert^2\over k_{\min}}.
+ \le \frac{\lVert R_J^\dagger v\rVert^2}{k_{\min}}.
 \end{equation}
 The min--max principle and the singular values of \(R_J^\dagger\) give
 Eq.~\eqref{eq:gram-bounds}; division gives
@@ -751,7 +714,7 @@ homomorphisms can preserve all currently fixed marginal and overlap data while
 changing mixed moments.  A complete seed-owned relation presentation and a
 unique typed-unitary zero orbit would be sufficient, but are not derived here.
 
-\subsection{What \(\Pi_{\rm phys}\) does and does not select}
+\subsection{What \texorpdfstring{\(\Pi_{\rm phys}\)}{Pi\_phys} does and does not select}
 
 The homomorphism fixes algebraic relations and a represented quotient.  It does
 not by itself fix a faithful state on that quotient.  Conversely, the
@@ -847,7 +810,7 @@ state will be generated by the incidence.  Its Gram operator is
 and therefore
 \begin{equation}
  \rho_\delta=
- {1\over k_0^{-1}+\delta^2k_1^{-1}}
+ \frac{1}{k_0^{-1}+\delta^2k_1^{-1}}
  \begin{pmatrix}k_0^{-1}&0\\0&\delta^2k_1^{-1}\end{pmatrix}.
  \label{eq:worked-state}
 \end{equation}
@@ -874,13 +837,12 @@ The full Bloch descriptor
 \end{equation}
 is injective on trace-one Hermitian matrices and reconstructs
 \begin{equation}
- \rho={1\over2}\bigl(I+D_X X+D_Y Y+D_Z Z\bigr).
+ \rho=\frac{1}{2}\bigl(I+D_X X+D_Y Y+D_Z Z\bigr).
  \label{eq:bloch-reconstruction}
 \end{equation}
 For Eq.~\eqref{eq:worked-state}, \(D_X=D_Y=0\) and
 \begin{equation}
- D_Z={k_0^{-1}-\delta^2k_1^{-1}
- \over k_0^{-1}+\delta^2k_1^{-1}}.
+ D_Z=\frac{k_0^{-1}-\delta^2k_1^{-1}}{k_0^{-1}+\delta^2k_1^{-1}}.
  \label{eq:worked-bloch-z}
 \end{equation}
 Keeping only \(D_Z\) would identify this diagonal family after that family was
@@ -1301,8 +1263,11 @@ matrix was built.  In Tau Core it may audit an independently frozen
 source/readout family, but it cannot replace the source-completeness and
 Nature-occupation obligations of this paper.
 
+\section{Downstream observer, laboratory, and algebraic source-state interface}
+\label{sec:downstream-interface-paperii}
+
 % BEGIN OBSERVER UPDATE 20260914
-\section{Observer realization: inherited results and physical boundary}
+\subsection{Observer realization: inherited results and physical boundary}
 \label{sec:observer-update-20260914}
 The current observer programme distinguishes a conditional mathematical
 construction from an occupied physical measuring system. The source order
@@ -1311,7 +1276,7 @@ observer--source restriction, shared descriptor, and resolved terminal
 readouts. Neither a detector nor an empirical residual constructs the parent
 body backwards. Dynamics below concern downstream subsystems only.
 
-The canonical observer-origin derivation, Sections 22--26, owns the following
+Technical Paper TD-II (Body-to-Readout Derivation) owns the following
 results. The existing joint source action fixes static and frequency-dependent
 response together. Variation of the BRAC potential couples to the field
 square; a linear field coupling is a distinct comparator unless derived by
@@ -1332,59 +1297,45 @@ a preparation mechanism, and a covariance or optimal abstract measurement is
 not an implemented stable quantizer $Q_{OS}$.
 
 \paragraph{Ownership and use.}
-The central observer-origin note owns the new contact, state and covariance
-derivations; the body-readout technical companion carries the consolidated
-mathematics. Foundation Papers IV, V and VI retain physical-selection,
-clock-descent and quantum-readout ownership, respectively. This paper imports
-only the consequences within its scope. No observational dataset, baseline,
-frozen coefficient, score or empirical conclusion is revised by this update.
-The reproducibility supplement records the source hashes and the exact
-conditional/physical distinction.
-
+Technical Paper TD-II owns the contact, state and covariance derivations;
+Foundation Papers IV, V and VI retain physical-selection, clock-descent and
+quantum-readout ownership, respectively. This paper imports only the
+consequences within its finite-algebraic scope. No observational dataset,
+baseline, frozen coefficient, score or empirical conclusion is revised here.
 
 \paragraph{Consequence for this paper.}
 The occupied observer--source context is relational instance data, not a uniquely selected observer identity inferred from the universal seed alone. Physical source realization and record preparation remain separate from conditional closure.
 % END OBSERVER UPDATE 20260914
 
 % BEGIN LAB UPDATE 20260915
-\section{Finite source-to-readout implementation and its scope}
+\subsection{Finite source-to-readout implementation and its scope}
 The current finite laboratory is a reproducible implementation, not a new Nature-selection theorem. The finite quartic instance has an explicit real two-point minimum set or complex phase-circle orbit, and a computed retained Hessian spectrum. A low-mode or large-gap ranking does not select an occupied state. Larger supports and coherent cycles broaden the computational prior, not this paper's physical selection theorem.
 \paragraph{Ownership and reproducibility.}
-The seed--body companion owns the finite minimum/Hessian example, the body--readout companion its ordered access and contact reduction, and the terminal companion its conditional propagation boundary. The physical-source papers retain the source-selection obligation. Code, declared priors, adverse controls and provenance are available at \url{https://github.com/tau-core-research/tau-core-theory/tree/main/experiments/seed_evolution_lab}. Numerical tests are internal evidence only; no published empirical score is changed.
+Technical Paper TD-I owns the finite minimum/Hessian example, TD-II its ordered access and contact reduction, and TD-III its conditional propagation boundary. Code, declared priors, adverse controls and provenance are available at \url{https://github.com/tau-core-research/tau-core-theory/tree/main/experiments/seed_evolution_lab}. Numerical tests are internal evidence only; no published empirical score is changed.
 % END LAB UPDATE 20260915
 
 % BEGIN STATE UPDATE 20260918
-\section{Source identification and recovery}
+\subsection{Source identification and recovery}
 The current observer audit separates a conditional forward construction from physical source selection. A frozen body, occupied observer incidence, preparation, complete instrument and stable resolution can determine records without selecting those inputs from Nature. Equal effects do not fix postmeasurement states, and symmetry within a chosen interaction family does not exclude other symmetric couplings. The occupied observer--source context is relational instance data, not a uniquely selected observer identity inferred from the universal seed alone. Physical source realization and record preparation remain separate from conditional closure.
 
 \paragraph{Dependency and claim ownership.}
-Foundation VI and the body--readout technical companion own the finite instrument/access proof; Foundation IV and TD-0 retain physical source selection; Foundation V, the temporal synthesis and seed--body companion own the gradient/inertial distinction. This paper inherits only the stated specialization. Canonical assumptions, countermodels and calibration audits are in \url{https://github.com/tau-core-research/tau-core-theory/blob/main/docs/tau_rqm_instrument_to_record_bridge_001.md}. No physical seed, Nature occupation or Tau-exclusive observation is established by this update. Existing empirical endpoint definitions and scores are unchanged.
+Foundation VI and TD-II own the finite instrument/access proof; Foundation IV and TD-0 retain physical source selection; Foundation V, the temporalization synthesis and TD-I own the gradient/inertial distinction. Canonical assumptions, countermodels and calibration audits are in \url{https://github.com/tau-core-research/tau-core-theory/blob/main/docs/tau_rqm_instrument_to_record_bridge_001.md}. No physical seed, Nature occupation or Tau-exclusive observation is established by this update.
 % END STATE UPDATE 20260918
 
 % BEGIN PAIR READOUT UPDATE 20260927
-\section{Conditional source preparation and time-resolved access}
-The common-operator scalar--Dirac completion now supports an explicit
-conditional chain from interaction vertices to pair transfer and joint
-readout. Nonzero vertices do not select occupation. Relational coherence
-can be generated from an occupied number-diagonal pair even while both
-local mean fields vanish. In a declared resonant rotating-wave and Markov
-loss model, finite-window emission retains this coherence information,
-whereas an all-time count discards it. This is standard-compatible quantum
-recovery, not a Tau-specific observational residual.
-The occupied observer--source context is relational instance data, not a uniquely selected observer identity inferred from the universal seed alone. Physical source realization and record preparation remain separate from conditional closure.
-\paragraph{Dependency ownership and limits.}
-The P4 common-source assembly owns the scalar/Yukawa benchmark and finite
-preparation calculations; Foundation VI and the body--readout companion
-inherit the joint-access mathematics. Foundation IV and TD-0 retain
-physical source selection, and Foundation V retains clock descent.
-The parent remains atemporal: the evolution above is a conditional
-downstream 4D model, not parent memory or a derived morphogenetic time.
-Physical initial occupation, a gauge-complete realization, detector
-amplification, absolute calibration and stable observer-relative $Q_{OS}$
-remain unselected. No empirical endpoint or score is changed.
-The canonical derivation and reproducible numerical sources are linked at
-\url{https://github.com/tau-core-research/tau-core-theory/blob/main/docs/tau_core_p4_nonabelian_particle_common_source_assembly_001.md}.
+\paragraph{Imported result (CPR1).}
+\href{https://github.com/tau-core-research/tau-core-higgs-module-paper4/blob/main/paper4_full_derivation/full_derivation.pdf#nameddest=cpr1}{Paper 4, \emph{Full Derivation Ledger for the Branch A Higgs Module}}, section ``Conditional source preparation and time-resolved access,'' Theorem CPR1(a--c), v1.0 (2026-09-28), is the sole proof owner.
+This is a conditional example of preparation and joint access after body stabilization, not a derivation of the occupied observer--source context. It neither adds a dynamical memory to the parent nor selects an operational observer from the universal seed.
+Physical preparation, detector/clock calibration and stable $Q_{OS}$ remain assumptions; no Tau-exclusive observation follows.
 % END PAIR READOUT UPDATE 20260927
+
+\subsection{Stage-mobility continuation and normalized-Laplacian/Clifford Gram identity (\texttt{SMSD-H1}, \texttt{U1}, \texttt{F1})}
+\label{sec:paperii-algebraic-closure-20261114}
+Two finite-dimensional algebraic results from the November 2026 derivation ledger sharpen the Gram-state and projector-normalization boundaries of this paper without importing downstream physical phenomenology:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Two-sided continuation and slot-metric stage gap (\texttt{F17-T1/T2}, \texttt{SMSD-H1}):} At the split ten-mode quadratic minimum $x_*(0)\in\mathbb{R}^4\oplus\mathbb{R}^6$ with $\lambda_{\min}(H_0)=0.26456684>0$, the Implicit Function Theorem gives a unique real coercive equilibrium branch on the maximal fold interval $\varepsilon\in(-0.02027049,+0.02905173)$. Relative to the pre-body slot metric $G_{\rm slot}=A_\tau(I_4\oplus I_6)$ (\texttt{SMSD-H1}), the stage-relaxation operator $M_{\rm stage}=\Gamma_0 G_{\rm slot}^{-1}H_0$ splits into disjoint fast ($[1.10665066,3.78246539]\,\Gamma_0$) and slow ($[0.26456684,0.58476161]\,\Gamma_0$) bands separated by gap $0.52188905\,\Gamma_0$, whereas induced Gram mobility (\texttt{IGM-H1}) remains a distinct control.
+\item \emph{Normalized $K_4$ Laplacian equals Clifford Gram matrix (\texttt{U1}, \texttt{F1}):} On the commutative vertex $C^*$-algebra $\mathcal{A}_4=\mathbb{C}e_0\oplus\mathbb{C}^4$ ($16$ Boolean idempotents), transitive $S_4$ unitality uniquely fixes minimal projector weights $\omega(p_i)=1/4$. Because every vertex of $K_4$ has degree $d_i=3$, Chung's symmetric normalized Laplacian $\widehat{\Delta}_{K_4}=D^{-1/2}L_{K_4}D^{-1/2}=\frac{4}{3}P_\perp$ coincides entrywise with the Clifford inner-product Gram matrix $G_{\mathrm{Cl},ij}=\frac{1}{2}\Tr(\gamma_i\gamma_j)$ on $M_2(\mathbb{C})$. Raw spectral projection (\texttt{C2}) and unit-Clifford normalization (\texttt{C1}) are therefore identical on $K_4$, fixing pure spinor projectors $\Pi^2=\Pi\in\mathcal{P}_1(M_2(\mathbb{C}))$ at $r_{\mathrm{seed}}=1/4$ modulo the single ontic non-triviality axiom \texttt{POST-OCC-NU1} ($\omega\neq\omega_0$).
+\end{enumerate}
 
 \section{Conclusion}
 

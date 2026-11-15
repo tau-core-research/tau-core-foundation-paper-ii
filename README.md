@@ -1,4 +1,4 @@
-# Tau Core Technical Paper I
+# Tau Core Foundation Paper II
 
 **Morphology convention:** the base is the pre-readout carrier, the seed is
 its base-readable relational/load pattern, and (M_\tau^\star) is the complete
@@ -180,3 +180,7 @@ result from the current lab. Supplied priors, conditional recovery and physical
 selection remain separate. No SI constant, viable universe or Tau-specific
 signal is newly established. See the [source and ownership ledger](data/derived/lab_update_2026_09_15.json).
 <!-- END LAB UPDATE 20260915 -->
+
+## Three-pillar closure and postulate-reduction update (2026-11-14)
+
+Foundation Paper II (`paperII_submission_source/main.tex`) incorporates a scoped architectural abstract, PDF-safe section headings, consolidated pre-Conclusion observer/laboratory/source-state interfaces referencing Technical Paper TD-II, and the `SMSD-H1` (`F17-T1/T2`) fast/slow stage-relaxation spectral gap `0.52188905 Gamma_0 > 0` alongside the 14 November 2026 single-postulate upstream boundary (`POST-OCC-NU1`; `NATURE_LEVEL_CLOSURE = false`).
